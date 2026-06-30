@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TecheVision | Careers</title>
+  <meta name="description" content="Join the TecheVision team. We're hiring Java Developers, Data Engineers, and Data Analysts." />
+  <meta name="theme-color" content="#061624" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand"><span class="dot"></span> TecheVision</a>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="clients.html">Clients</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faqs.html">FAQ's</a></li>
+        <li><a href="careers.html" class="active">Careers</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero hero--inner">
+    <div class="container">
+      <span class="eyebrow" style="color:var(--accent)">Careers</span>
+      <h1>We're hiring! Join our growing team</h1>
+      <p>Ready to take your career to the next level? We're expanding and looking for passionate professionals.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container center">
+      <span class="eyebrow">Current job openings</span>
+      <h2>Open roles</h2>
+    </div>
+    <div class="container grid grid-3" style="margin-top:36px">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3a4 4 0 00-4 4v3a2 2 0 01-2 2 2 2 0 012 2v3a4 4 0 004 4"/><path d="M16 3a4 4 0 014 4v3a2 2 0 002 2 2 2 0 00-2 2v3a4 4 0 01-4 4"/></svg></div>
+        <h3>Java Developers</h3>
+        <p>Build robust, scalable applications for our clients across industries.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
+        <h3>Data Engineers</h3>
+        <p>Design and build data pipelines and infrastructure that power insights.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/></svg></div>
+        <h3>Data Analysts</h3>
+        <p>Turn data into actionable insights that drive business decisions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container split">
+      <div>
+        <span class="eyebrow">What we offer</span>
+        <h2>Why work with us</h2>
+        <ul style="color:var(--muted); padding-left:20px; line-height:2">
+          <li>Competitive salary &amp; benefits</li>
+          <li>A collaborative and innovative work culture</li>
+          <li>Opportunities for growth and learning</li>
+          <li>Flexible work environment</li>
+        </ul>
+        <p style="color:var(--navy); font-weight:600; margin-top:10px">Apply now or refer a friend.</p>
+      </div>
+      <div class="form">
+        <h3>Apply now</h3>
+        <form action="https://formsubmit.co/contact@techevision.com" method="POST">
+          <input type="hidden" name="_subject" value="New job application from techevision.com" />
+          <input type="hidden" name="_captcha" value="true" />
+          <label for="j-name">Name *</label>
+          <input id="j-name" type="text" name="name" required placeholder="Full name" />
+          <label for="j-phone">Phone *</label>
+          <input id="j-phone" type="tel" name="phone" required placeholder="Your phone number" />
+          <label for="j-email">Email *</label>
+          <input id="j-email" type="email" name="email" required placeholder="you@example.com" />
+          <label for="j-role">Role you're applying for</label>
+          <input id="j-role" type="text" name="role" placeholder="e.g. Java Developer" />
+          <p class="form-note">To attach a resume, email it to contact@techevision.com after submitting.</p>
+          <button type="submit" class="btn btn--primary">Submit Application</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" class="brand" style="margin-bottom:12px"><span class="dot"></span> TecheVision</a>
+        <p>Top-notch technology consulting services to help your business thrive in the digital world.</p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="clients.html">Clients</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faqs.html">FAQ's</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul class="footer-links">
+          <li><a href="tel:15599661123">+1 (559) 966-1123</a></li>
+          <li><a href="mailto:contact@techevision.com">contact@techevision.com</a></li>
+          <li>Ashburn, Virginia, USA</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>Copyright © <span id="year">2026</span> TecheVision — All Rights Reserved.</span>
+      <span>Built and maintained by TecheVision.</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
