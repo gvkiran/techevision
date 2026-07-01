@@ -251,6 +251,9 @@ strong{ color:var(--ink); }
 .form input::placeholder,.form textarea::placeholder{ color:#5f7385; }
 .form input:focus,.form textarea:focus{ outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(129,253,218,.15), 0 0 18px rgba(129,253,218,.2); }
 .form .btn{ margin-top:24px; width:100%; justify-content:center; }
+.form input[type=file]{ padding:10px 14px; color:var(--text); cursor:pointer; }
+.form input[type=file]::file-selector-button{ font-family:var(--sans); font-weight:700; font-size:.76rem; letter-spacing:.04em; text-transform:uppercase; background:rgba(129,253,218,.1); color:var(--accent); border:1px solid var(--border); border-radius:6px; padding:8px 14px; margin-right:12px; cursor:pointer; transition:background .2s; }
+.form input[type=file]::file-selector-button:hover{ background:rgba(129,253,218,.2); }
 .form-note{ font-size:.82rem; color:var(--muted); margin-top:14px; }
 .info-row{ display:flex; gap:14px; align-items:flex-start; margin-bottom:16px; color:var(--text); }
 .info-row .icon{ color:var(--accent); flex:none; margin-top:3px; filter:drop-shadow(0 0 6px rgba(129,253,218,.5)); }

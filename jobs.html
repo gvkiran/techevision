@@ -81,7 +81,7 @@
           </div>
           <p>Design and build robust, scalable Java applications and services for our clients. Collaborate across teams to deliver secure, high-performance software.</p>
           <div class="job-tags"><span>Java</span><span>Spring Boot</span><span>REST APIs</span><span>SQL</span><span>AWS</span></div>
-          <a class="btn btn--primary" href="mailto:contact@techevision.com?subject=Application:%20Java%20Developer">Apply for this role</a>
+          <a class="btn btn--primary" href="#apply" data-role="Java Developer">Apply for this role</a>
         </article>
 
         <article class="job reveal d1">
@@ -95,7 +95,7 @@
           </div>
           <p>Build and maintain reliable data pipelines and platforms. Turn raw data into a dependable foundation for analytics and machine learning.</p>
           <div class="job-tags"><span>Python</span><span>Spark</span><span>SQL</span><span>Snowflake</span><span>Airflow</span></div>
-          <a class="btn btn--primary" href="mailto:contact@techevision.com?subject=Application:%20Data%20Engineer">Apply for this role</a>
+          <a class="btn btn--primary" href="#apply" data-role="Data Engineer">Apply for this role</a>
         </article>
 
         <article class="job reveal d2">
@@ -109,7 +109,7 @@
           </div>
           <p>Turn data into clear, actionable insights. Build dashboards and reports that drive better business decisions across the organization.</p>
           <div class="job-tags"><span>SQL</span><span>Power BI</span><span>Python</span><span>Excel</span><span>Statistics</span></div>
-          <a class="btn btn--primary" href="mailto:contact@techevision.com?subject=Application:%20Data%20Analyst">Apply for this role</a>
+          <a class="btn btn--primary" href="#apply" data-role="Data Analyst">Apply for this role</a>
         </article>
 
       </div>
@@ -131,8 +131,8 @@
         <p style="color:var(--ink); font-weight:700; margin-top:14px; font-family:var(--sans)">Apply now or refer a friend.</p>
       </div>
       <div class="form reveal d1" id="apply">
-        <h3>General application</h3>
-        <form action="https://formsubmit.co/contact@techevision.com" method="POST">
+        <h3>Apply now</h3>
+        <form action="https://formsubmit.co/contact@techevision.com" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="_subject" value="New job application from techevision.com" />
           <input type="hidden" name="_captcha" value="true" />
           <input type="hidden" name="_template" value="table" />
@@ -144,8 +144,12 @@
           <input id="j-email" type="email" name="email" required placeholder="you@example.com" />
           <label for="j-role">Role you're applying for</label>
           <input id="j-role" type="text" name="role" placeholder="e.g. Java Developer" />
+          <label for="j-resume">Resume / CV *</label>
+          <input id="j-resume" type="file" name="attachment" accept=".pdf,.doc,.docx,.txt" required />
+          <label for="j-msg">Message (optional)</label>
+          <textarea id="j-msg" name="message" rows="3" placeholder="Anything you'd like us to know"></textarea>
           <button type="submit" class="btn btn--primary">Submit application</button>
-          <p class="form-note">To attach a resume, email it to contact@techevision.com after submitting.</p>
+          <p class="form-note">Your details and resume are emailed straight to contact@techevision.com (PDF or Word, up to ~10 MB). The first submission triggers a one-time confirmation email.</p>
         </form>
       </div>
     </div>

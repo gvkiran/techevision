@@ -16,6 +16,14 @@ document.addEventListener('DOMContentLoaded', function () {
     reveals.forEach(function (el) { io.observe(el); });
   } else { reveals.forEach(function (el) { el.classList.add('in'); }); }
 
+  // Apply buttons: prefill the role and jump to the application form
+  document.querySelectorAll('[data-role]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      var r = document.getElementById('j-role');
+      if (r) r.value = el.getAttribute('data-role');
+    });
+  });
+
   initHeroFX();
 });
 
