@@ -5,5 +5,5 @@
   <url><loc>https://techevision.com/clients</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://techevision.com/contact</loc><changefreq>yearly</changefreq><priority>0.8</priority></url>
   <url><loc>https://techevision.com/faqs</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://techevision.com/careers</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://techevision.com/jobs</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>
