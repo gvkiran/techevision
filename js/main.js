@@ -67,6 +67,8 @@ function initHeroFX() {
   var ctx = canvas.getContext('2d');
   var w = 0, h = 0, dpr = 1;
   var mouse = { x: null, y: null };
+  var spin = 0, dragging = false, lastX = 0;
+  if (mode === 'globe' || mode === 'orbit') hero.style.cursor = 'grab';
   var P = [];   // particles / points
   var t = 0;
 
@@ -100,6 +102,11 @@ function initHeroFX() {
 
   hero.addEventListener('mousemove', function (e) { var r = hero.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
   hero.addEventListener('mouseleave', function () { mouse.x = mouse.y = null; });
+  if (mode === 'globe' || mode === 'orbit') {
+    hero.addEventListener('pointerdown', function (e) { dragging = true; lastX = e.clientX; hero.style.cursor = 'grabbing'; });
+    window.addEventListener('pointermove', function (e) { if (dragging) { spin += (e.clientX - lastX) * 0.006; lastX = e.clientX; } });
+    window.addEventListener('pointerup', function () { if (dragging) { dragging = false; hero.style.cursor = 'grab'; } });
+  }
 
   function dot(x, y, r, alpha, color) {
     ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283);
@@ -127,7 +134,7 @@ function initHeroFX() {
       ctx.strokeStyle = 'rgba(' + TEAL + ',0.10)';
       for (var rr = 1; rr <= 4; rr++) { ctx.beginPath(); ctx.arc(cx, cy, 60 + rr * 46, 0, 6.283); ctx.stroke(); }
       dot(cx, cy, 4, 1);
-      for (var k = 0; k < P.length; k++) { var o = P[k]; o.a += o.sp; var x = cx + Math.cos(o.a) * o.rr, y = cy + Math.sin(o.a) * o.rr; line(cx, cy, x, y, .05); dot(x, y, o.r, .85); }
+      for (var k = 0; k < P.length; k++) { var o = P[k]; o.a += o.sp; var x = cx + Math.cos(o.a + spin) * o.rr, y = cy + Math.sin(o.a + spin) * o.rr; line(cx, cy, x, y, .05); dot(x, y, o.r, .85); }
 
     } else if (mode === 'radar') {
       var rx = w > 900 ? w * 0.74 : w * 0.5, ry = h * 0.5, R = Math.min(w, h) * 0.42;
@@ -144,7 +151,7 @@ function initHeroFX() {
       for (var bi = 0; bi < 6; bi++) { var ba = bi * 1.05, bd = (0.35 + (bi % 3) * 0.22) * R; var bx = rx + Math.cos(ba) * bd, by = ry + Math.sin(ba) * bd; var pulse = (Math.sin(t * 0.05 + bi) + 1) / 2; dot(bx, by, 2 + pulse * 2, .4 + pulse * 0.5); }
 
     } else if (mode === 'globe') {
-      var gx = w > 900 ? w * 0.72 : w * 0.5, gy = h * 0.5, GR = Math.min(w, h) * 0.32, rot = t * 0.004;
+      var gx = w > 900 ? w * 0.72 : w * 0.5, gy = h * 0.5, GR = Math.min(w, h) * 0.32, rot = t * 0.004 + spin;
       var pts = [];
       for (var m = 0; m < P.length; m++) { var q = P[m]; var ph = q.ph + rot; var X = q.r0 * Math.cos(ph), Z = q.r0 * Math.sin(ph); var sx = gx + X * GR, sy = gy + q.y0 * GR; var depth = (Z + 1) / 2; pts.push({ x: sx, y: sy, z: Z, dp: depth }); dot(sx, sy, 0.6 + depth * 1.8, 0.25 + depth * 0.7); }
       for (var a2 = 0; a2 < pts.length; a2 += 7) { for (var b2 = a2 + 1; b2 < pts.length; b2 += 11) { var ddx = pts[a2].x - pts[b2].x, ddy = pts[a2].y - pts[b2].y, dd = Math.sqrt(ddx * ddx + ddy * ddy); if (dd < 70) line(pts[a2].x, pts[a2].y, pts[b2].x, pts[b2].y, .12 * pts[a2].dp); } }
