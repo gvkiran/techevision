@@ -289,6 +289,35 @@ strong{ color:var(--ink); }
 .footer-links{ list-style:none; padding:0; margin:0; } .footer-links li{ margin-bottom:10px; }
 .footer-bottom{ border-top:1px solid var(--border-soft); margin-top:44px; padding-top:22px; font-size:.88rem; color:#5f7385; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
 
+/* ---------- Tech constellation (Learn page) ---------- */
+.constellation-wrap{ display:grid; place-items:center; margin-top:34px; width:100%; }
+.constellation{ width:100%; max-width:760px; height:auto; overflow:visible; }
+.constellation .hub{ fill:#0a1f33; stroke:var(--accent); stroke-width:2.5; filter:drop-shadow(0 0 18px rgba(129,253,218,.6)); }
+.constellation .hub-label{ fill:var(--accent); font-family:var(--sans); font-weight:800; font-size:22px; letter-spacing:2px; text-anchor:middle; dominant-baseline:middle; }
+.constellation .ring{ fill:none; stroke:rgba(95,224,192,.16); stroke-dasharray:3 11; transform-origin:400px 400px; animation:spin 44s linear infinite; }
+@keyframes spin{ to{ transform:rotate(360deg) } }
+.tech-node{ cursor:pointer; }
+.tech-node line{ stroke:rgba(95,224,192,.22); stroke-width:1.5; transition:.25s var(--ease); }
+.tech-node .dot{ fill:#0a1f33; stroke:var(--accent); stroke-width:2; transition:.25s var(--ease); }
+.tech-node .halo{ fill:rgba(129,253,218,0); transition:.25s var(--ease); }
+.tech-node text{ fill:#aebfca; font-family:var(--sans); font-weight:700; font-size:19px; letter-spacing:.4px; transition:.25s var(--ease); }
+.tech-node:hover line, .tech-node:focus line{ stroke:var(--accent); stroke-width:3; filter:drop-shadow(0 0 6px rgba(129,253,218,.85)); }
+.tech-node:hover .dot, .tech-node:focus .dot{ fill:var(--accent); r:14; filter:drop-shadow(0 0 12px rgba(129,253,218,.95)); }
+.tech-node:hover .halo, .tech-node:focus .halo{ fill:rgba(129,253,218,.12); }
+.tech-node:hover text, .tech-node:focus text{ fill:#fff; }
+.node-pulse{ animation:nodepulse 3s var(--ease) infinite; }
+@keyframes nodepulse{ 0%,100%{ opacity:.55 } 50%{ opacity:1 } }
+.constellation-hint{ text-align:center; color:var(--muted); font-family:var(--sans); font-size:.86rem; letter-spacing:.05em; text-transform:uppercase; margin-top:26px; }
+
+/* ---------- Learn sections ---------- */
+.tech-sec{ scroll-margin-top:96px; }
+.split--rev .rev-a{ order:2; }
+@media (max-width:880px){ .split--rev .rev-a{ order:0; } }
+.learn-card{ background:var(--panel); border:1px solid var(--border-soft); border-radius:var(--radius-lg); padding:30px 32px; backdrop-filter:blur(8px); }
+.learn-card + .learn-card{ margin-top:20px; }
+.learn-card h4{ font-family:var(--sans); color:var(--ink); font-size:.84rem; letter-spacing:.06em; text-transform:uppercase; margin:0 0 16px; }
+.learn-card .checklist{ margin:0; } .learn-card .checklist li{ margin-bottom:12px; }
+
 /* Scroll reveal */
 .reveal{ opacity:0; transform:translateY(28px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
 .reveal.in{ opacity:1; transform:none; }
