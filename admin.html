@@ -49,6 +49,10 @@
       <div class="admin-panel">
         <h3 id="form-title">Add a job</h3>
         <div class="form form--bare">
+          <label for="f-paste">✨ Paste a job posting to auto-fill (optional)</label>
+          <textarea id="f-paste" rows="6" placeholder="Paste the full recruiter post here — title, location, skills, responsibilities… — then click Parse. It fills the fields below for you to review, then click Post job."></textarea>
+          <button type="button" class="btn btn--primary" id="parse-btn" style="margin:12px 0 20px">Parse &amp; fill form</button>
+          <div style="border-top:1px solid var(--border-soft); margin:0 0 20px"></div>
           <label for="f-title">Job title *</label>
           <input id="f-title" type="text" placeholder="e.g. Senior Java Developer" />
           <div class="row2">
@@ -238,6 +242,60 @@
     ['f-title', 'f-type', 'f-mode', 'f-location', 'f-level', 'f-summary', 'f-skills', 'f-posted'].forEach(function (id) {
       $(id).addEventListener('input', previewFromForm);
     });
+
+    function parseJob() {
+      var t = $('f-paste').value.replace(/\r/g, '');
+      if (!t.trim()) { alert('Paste a job posting first.'); return; }
+      var strip = function (s) { return String(s || '').replace(/[\u{1F000}-\u{1FAFF}☀-➿⬀-⯿←-⇿️]/gu, ' ').replace(/\s+/g, ' ').trim(); };
+      var field = function (label) {
+        var re = new RegExp(label + '\\s*[:\\-]\\s*(.+?)(?=[\\u{1F000}-\\u{1FAFF}\\u2600-\\u27BF\\u2B00-\\u2BFF\\u2190-\\u21FF]|\\n|$)', 'iu');
+        var m = t.match(re); return m ? m[1].trim() : '';
+      };
+      var titleM = t.match(/hiring\s*[-–—:]\s*([^\n]+)/i);
+      var title = strip(titleM ? titleM[1] : (t.split('\n').map(function (l) { return l.trim(); }).filter(Boolean)[0] || '')).replace(/\|.*$/, '').trim();
+      var locRaw = field('location'); var loc = /\[/.test(locRaw) ? '' : strip(locRaw);
+      var intRaw = field('interview\\s+mode'); var interview = /\[/.test(intRaw) ? '' : strip(intRaw);
+      var vparts = [];
+      if (/\bw2\b/i.test(t)) vparts.push('W2 only');
+      if (/h-?1-?b/i.test(t)) vparts.push('H-1B transfer OK');
+      if (/no sponsorship/i.test(t)) vparts.push('No sponsorship');
+      if (/will sponsor|sponsorship (available|provided)/i.test(t)) vparts.push('Sponsorship available');
+      var mode = /remote/i.test(t) ? 'Remote' : (/hybrid/i.test(t) ? 'Hybrid' : (/on-?site|onsite/i.test(t) ? 'On-site' : 'Hybrid'));
+      var type = /\bw2\b|contract|long[\s-]?term|c2c/i.test(t) ? 'Contract' : (/intern/i.test(t) ? 'Internship' : 'Full-time');
+      var ym = t.match(/(\d+)\+?\s*years/i); var years = ym ? parseInt(ym[1], 10) : 0;
+      var level = /senior|lead|principal|manager|architect|director/i.test(title) ? 'Senior' : (years >= 8 ? 'Senior' : (years >= 3 ? 'Mid–Senior' : 'Entry–Mid'));
+      var lines = t.split('\n'); var sec = { pre: [], overview: [], resp: [], required: [], preferred: [] }; var cur = 'pre';
+      lines.forEach(function (ln) {
+        var s = ln.toLowerCase();
+        if (ln.length < 60 && /role overview|summary|about the role|job description/.test(s)) { cur = 'overview'; return; }
+        if (ln.length < 60 && /responsibilit|what you.ll do/.test(s)) { cur = 'resp'; return; }
+        if (ln.length < 60 && /required skills|requirements|must have|qualification/.test(s)) { cur = 'required'; return; }
+        if (ln.length < 40 && /preferred|nice to have|bonus/.test(s)) { cur = 'preferred'; return; }
+        sec[cur].push(ln);
+      });
+      var bullets = function (arr) { return arr.map(function (l) { return strip(l).replace(/^[•*◦\-\s]+/, '').trim(); }).filter(function (x) { return x.length > 1; }); };
+      var overview = bullets(sec.overview).join(' ');
+      var summary = ((overview.match(/^.*?[.!?](\s|$)/) || [overview])[0] || overview).slice(0, 170).trim();
+      var descParts = [];
+      if (overview) descParts.push(overview);
+      var resp = bullets(sec.resp); if (resp.length) descParts.push('Key Responsibilities:\n' + resp.map(function (r) { return '• ' + r; }).join('\n'));
+      var pref = bullets(sec.preferred); if (pref.length) descParts.push('Preferred:\n' + pref.map(function (r) { return '• ' + r; }).join('\n'));
+      var description = descParts.join('\n\n');
+      var DICT = ['WMS', 'OMS', 'TMS', 'Blue Yonder', 'Manhattan', 'EDI', 'AS2', 'SFTP', 'API', 'Middleware', 'Automation', 'SIT', 'UAT', 'Supply Chain', 'Logistics', 'Warehouse', 'Project Management', 'PMP', 'Prince2', 'Change Management', 'Agile', 'Scrum', 'Java', 'Spring Boot', 'Python', 'Django', 'Flask', 'SQL', 'NoSQL', 'AWS', 'Azure', 'GCP', 'Spark', 'Hadoop', 'Airflow', 'Snowflake', 'Kafka', 'dbt', 'ETL', 'React', 'Angular', 'Node.js', 'JavaScript', 'TypeScript', 'Docker', 'Kubernetes', 'Terraform', 'CI/CD', 'Jenkins', 'Selenium', 'Cypress', 'Power BI', 'Tableau', 'Machine Learning', 'Data Engineering', 'DevOps', 'Salesforce', 'SAP', 'Oracle', '.NET', 'C#', 'Integration'];
+      var skills = [];
+      DICT.forEach(function (k) { var re = new RegExp('(^|[^a-z0-9+#.])' + k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '([^a-z0-9+#]|$)', 'i'); if (re.test(t) && skills.indexOf(k) < 0) skills.push(k); });
+      skills = skills.slice(0, 12);
+      $('f-title').value = title; $('f-type').value = type; $('f-mode').value = mode;
+      if (loc) $('f-location').value = loc;
+      $('f-level').value = level; $('f-visa').value = vparts.join(' · '); $('f-interview').value = interview;
+      $('f-summary').value = summary; $('f-description').value = description; $('f-skills').value = skills.join(', ');
+      editingId = null;
+      $('form-title').textContent = 'Review & post'; $('save-btn').textContent = 'Post job';
+      previewFromForm(); flash('flash');
+      $('f-title').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    $('parse-btn').addEventListener('click', parseJob);
+
     previewFromForm();
   })();
   </script>

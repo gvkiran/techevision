@@ -89,7 +89,7 @@
         + row('Experience', j.level) + row('Visa', j.visa) + row('Interview', j.interview)
         + row('Posted', postedLabel(j.posted))
         + '</div>'
-        + '<h4>About the role</h4><p>' + esc(j.description || j.summary) + '</p>'
+        + '<h4>About the role</h4><p>' + esc(j.description || j.summary).replace(/\n/g, '<br>') + '</p>'
         + '<h4>Key skills</h4><div class="job-tags">' + skills + '</div>'
         + '<button type="button" class="btn btn--primary" data-apply="' + esc(j.title) + '">Apply for this role</button>';
       detailModal.classList.add('open'); detailModal.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden';
