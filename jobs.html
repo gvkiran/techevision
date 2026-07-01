@@ -131,7 +131,7 @@
         <div class="modal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M2 13h20"/></svg></div>
         <h3 id="apply-title">Apply now</h3>
         <p class="modal-tag" id="apply-role-tag" hidden></p>
-        <form class="form form--bare" action="https://formsubmit.co/contact@techevision.com" method="POST" enctype="multipart/form-data">
+        <form class="form form--bare" action="https://formsubmit.co/contact@techevision.com" method="POST">
           <input type="hidden" name="_subject" value="New job application from techevision.com" />
           <input type="hidden" name="_captcha" value="true" />
           <input type="hidden" name="_template" value="table" />
@@ -168,12 +168,10 @@
             <option>Yes — in the future</option>
             <option>Not sure</option>
           </select>
-          <label for="j-resume">Resume / CV *</label>
-          <input id="j-resume" type="file" name="attachment" accept=".pdf,.doc,.docx,.txt" required />
           <label for="j-msg">Message (optional)</label>
           <textarea id="j-msg" name="message" rows="3" placeholder="Anything you'd like us to know"></textarea>
           <button type="submit" class="btn btn--primary">Submit application</button>
-          <p class="form-note">Your details and resume are emailed straight to contact@techevision.com (PDF or Word, up to ~10 MB). The first submission triggers a one-time confirmation email.</p>
+          <p class="form-note">After submitting, please email your resume to contact@techevision.com.</p>
         </form>
       </div>
     </div>
