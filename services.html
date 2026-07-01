@@ -4,11 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Services | TecheVision IT Consulting</title>
-  <meta name="description" content="Explore TecheVision's IT services: data engineering, Java &amp; Python development, cloud computing (AWS, Azure, GCP), data analytics, and manual &amp; automation QA testing." />
+  <meta name="description" content="Explore TecheVision's IT services: data engineering, Java &amp; Python development, cloud computing (AWS, Azure, GCP), data analytics, and manual &amp; automation QA testing. Click any service for full details." />
   <meta name="keywords" content="IT services, data engineering, Java development, Python development, cloud computing, AWS, Azure, data analytics, QA testing, automation testing" />
   <meta name="author" content="TecheVision" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://techevision.com/services" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <meta name="theme-color" content="#061624" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="TecheVision" />
@@ -47,7 +48,7 @@
         <div>
           <span class="eyebrow">Services</span>
           <h1>Professional IT consulting, end&nbsp;to&nbsp;end</h1>
-          <p>From data and cloud to software and quality engineering — specialist teams ready to deliver on your goals.</p>
+          <p>From data and cloud to software and quality engineering — click any service below to see exactly how we can help.</p>
           <a href="contact.html" class="btn btn--primary">Request a Consultation</a>
         </div>
       </div>
@@ -59,19 +60,41 @@
       <div class="section-head center reveal">
         <span class="eyebrow">What we offer</span>
         <h2>Our core services</h2>
-        <p class="lead">Personalized solutions tailored to your business and built to scale.</p>
+        <p class="lead">Select a service to explore what we deliver, our approach, and the technologies we use.</p>
       </div>
       <div class="grid grid-3" style="margin-top:48px">
-        <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div><h3>Data Engineering</h3><p>Design and build reliable data pipelines and platforms that turn raw data into a dependable foundation for analytics and AI.</p></div>
-        <div class="card reveal d1"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3a4 4 0 00-4 4v3a2 2 0 01-2 2 2 2 0 012 2v3a4 4 0 004 4"/><path d="M16 3a4 4 0 014 4v3a2 2 0 002 2 2 2 0 00-2 2v3a4 4 0 01-4 4"/></svg></div><h3>Java Development</h3><p>Robust, scalable enterprise applications and services engineered for performance, security, and maintainability.</p></div>
-        <div class="card reveal d2"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><h3>Python Development</h3><p>Automation, data processing, and backend services that accelerate your operations and unlock new capabilities.</p></div>
-        <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.3A7 7 0 104 16h13a4 4 0 001-7.9z"/></svg></div><h3>Cloud Computing</h3><p>Strategy, migration, and optimization across AWS, Azure, and Google Cloud — integrated seamlessly with your systems to reduce cost.</p></div>
-        <div class="card reveal d1"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div><h3>Manual &amp; Automation Testing</h3><p>Comprehensive QA — from manual test design to automated suites — so you ship with confidence and fewer defects.</p></div>
-        <div class="card reveal d2"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/></svg></div><h3>Data Analytics</h3><p>Dashboards and insights that translate your data into clear, actionable decisions across the business.</p></div>
+        <button type="button" class="card card--service reveal" data-service="data-engineering">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
+          <h3>Data Engineering</h3><p>Reliable pipelines and platforms that turn raw data into a trusted foundation.</p>
+          <span class="card-more">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <button type="button" class="card card--service reveal d1" data-service="java-development">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3a4 4 0 00-4 4v3a2 2 0 01-2 2 2 2 0 012 2v3a4 4 0 004 4"/><path d="M16 3a4 4 0 014 4v3a2 2 0 002 2 2 2 0 00-2 2v3a4 4 0 01-4 4"/></svg></div>
+          <h3>Java Development</h3><p>Robust, scalable enterprise applications engineered to last.</p>
+          <span class="card-more">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <button type="button" class="card card--service reveal d2" data-service="python-development">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <h3>Python Development</h3><p>Automation, backends, and data apps that accelerate your work.</p>
+          <span class="card-more">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <button type="button" class="card card--service reveal" data-service="cloud-computing">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.3A7 7 0 104 16h13a4 4 0 001-7.9z"/></svg></div>
+          <h3>Cloud Computing</h3><p>Strategy, migration, and optimization across AWS, Azure &amp; GCP.</p>
+          <span class="card-more">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <button type="button" class="card card--service reveal d1" data-service="qa-testing">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+          <h3>QA &amp; Test Automation</h3><p>Quality engineering that ships faster with fewer defects.</p>
+          <span class="card-more">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <button type="button" class="card card--service reveal d2" data-service="data-analytics">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/></svg></div>
+          <h3>Data Analytics</h3><p>Dashboards and insight that drive better business decisions.</p>
+          <span class="card-more">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
       </div>
-      <div class="center reveal" style="margin-top:36px">
-        <p class="lead" style="font-style:italic">"Stay tuned for more cutting-edge technologies — we're expanding our offerings with the latest innovations."</p>
-      </div>
+      <p class="center reveal" style="margin-top:30px; color:var(--muted); font-style:italic">"Stay tuned for more cutting-edge technologies — we're expanding our offerings with the latest innovations."</p>
     </div>
   </section>
 
@@ -103,6 +126,88 @@
       <a href="contact.html" class="btn btn--primary" style="margin-top:12px">Contact us</a>
     </div>
   </section>
+
+  <!-- ===== Service detail modal ===== -->
+  <div class="modal" id="service-modal" aria-hidden="true">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" aria-label="Close" data-close>&times;</button>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- ===== Service detail content (shown in the modal) ===== -->
+  <div class="svc-source" id="svc-data-engineering" hidden>
+    <div class="modal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
+    <h3 id="modal-title">Data Engineering</h3>
+    <p class="modal-tag">Reliable pipelines &amp; platforms</p>
+    <p>We design and build the data backbone your business runs on — ingesting, transforming, and serving data reliably at scale, so every team can trust the numbers behind their decisions.</p>
+    <h4>What we deliver</h4>
+    <ul class="svc-list"><li>Batch &amp; real-time streaming pipelines</li><li>Cloud data warehouses &amp; lakehouses</li><li>ETL/ELT design and data modeling</li><li>Data quality, testing &amp; observability</li><li>Platform migration &amp; modernization</li><li>Orchestration &amp; automation</li></ul>
+    <h4>Technologies</h4>
+    <div class="job-tags"><span>Python</span><span>Apache Spark</span><span>Airflow</span><span>Snowflake</span><span>dbt</span><span>Kafka</span><span>AWS / Azure</span></div>
+    <a href="contact.html" class="btn btn--primary">Discuss this service</a>
+  </div>
+
+  <div class="svc-source" id="svc-java-development" hidden>
+    <div class="modal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3a4 4 0 00-4 4v3a2 2 0 01-2 2 2 2 0 012 2v3a4 4 0 004 4"/><path d="M16 3a4 4 0 014 4v3a2 2 0 002 2 2 2 0 00-2 2v3a4 4 0 01-4 4"/></svg></div>
+    <h3>Java Development</h3>
+    <p class="modal-tag">Enterprise-grade &amp; built to last</p>
+    <p>We build robust, scalable Java applications and services engineered for performance, security, and long-term maintainability — from greenfield builds to modernizing legacy systems.</p>
+    <h4>What we deliver</h4>
+    <ul class="svc-list"><li>Microservices &amp; REST APIs</li><li>Enterprise application development</li><li>Legacy modernization &amp; refactoring</li><li>System &amp; third-party integration</li><li>Performance tuning &amp; hardening</li><li>Code review &amp; engineering best practices</li></ul>
+    <h4>Technologies</h4>
+    <div class="job-tags"><span>Java</span><span>Spring Boot</span><span>Hibernate</span><span>REST</span><span>Kafka</span><span>JUnit</span></div>
+    <a href="contact.html" class="btn btn--primary">Discuss this service</a>
+  </div>
+
+  <div class="svc-source" id="svc-python-development" hidden>
+    <div class="modal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+    <h3>Python Development</h3>
+    <p class="modal-tag">Automation &amp; data-driven backends</p>
+    <p>From automation to data-driven backends, we build Python solutions that speed up your operations, remove manual work, and unlock new capabilities across your business.</p>
+    <h4>What we deliver</h4>
+    <ul class="svc-list"><li>Backend &amp; API development</li><li>Workflow &amp; process automation</li><li>Data processing applications</li><li>Third-party &amp; system integrations</li><li>Scripting, tooling &amp; utilities</li><li>Rapid prototyping</li></ul>
+    <h4>Technologies</h4>
+    <div class="job-tags"><span>Python</span><span>Django</span><span>Flask</span><span>FastAPI</span><span>pandas</span><span>Celery</span></div>
+    <a href="contact.html" class="btn btn--primary">Discuss this service</a>
+  </div>
+
+  <div class="svc-source" id="svc-cloud-computing" hidden>
+    <div class="modal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.3A7 7 0 104 16h13a4 4 0 001-7.9z"/></svg></div>
+    <h3>Cloud Computing</h3>
+    <p class="modal-tag">Scale securely, pay for what you use</p>
+    <p>We take a strategic approach to the cloud — planning, migrating, and optimizing across the major providers so you scale securely, improve reliability, and control costs.</p>
+    <h4>What we deliver</h4>
+    <ul class="svc-list"><li>Cloud strategy &amp; architecture</li><li>Migration &amp; modernization</li><li>Cost optimization (FinOps)</li><li>DevOps &amp; CI/CD pipelines</li><li>Infrastructure as Code</li><li>Security &amp; compliance</li></ul>
+    <h4>Technologies</h4>
+    <div class="job-tags"><span>AWS</span><span>Microsoft Azure</span><span>Google Cloud</span><span>Docker</span><span>Kubernetes</span><span>Terraform</span></div>
+    <a href="contact.html" class="btn btn--primary">Discuss this service</a>
+  </div>
+
+  <div class="svc-source" id="svc-qa-testing" hidden>
+    <div class="modal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+    <h3>QA &amp; Test Automation</h3>
+    <p class="modal-tag">Ship faster with fewer defects</p>
+    <p>We provide comprehensive quality engineering — from test strategy to automated suites wired into your delivery pipeline — so you release with confidence and catch issues early.</p>
+    <h4>What we deliver</h4>
+    <ul class="svc-list"><li>Test strategy &amp; planning</li><li>Manual &amp; exploratory testing</li><li>Automation framework development</li><li>API &amp; performance testing</li><li>CI/CD test integration</li><li>Regression &amp; smoke suites</li></ul>
+    <h4>Technologies</h4>
+    <div class="job-tags"><span>Selenium</span><span>Cypress</span><span>TestNG</span><span>JUnit</span><span>Postman</span><span>JMeter</span></div>
+    <a href="contact.html" class="btn btn--primary">Discuss this service</a>
+  </div>
+
+  <div class="svc-source" id="svc-data-analytics" hidden>
+    <div class="modal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/></svg></div>
+    <h3>Data Analytics</h3>
+    <p class="modal-tag">From data to decisions</p>
+    <p>We turn your data into clear, actionable insight — building dashboards and reporting that help everyone from analysts to executives make better, faster decisions.</p>
+    <h4>What we deliver</h4>
+    <ul class="svc-list"><li>BI dashboards &amp; reporting</li><li>KPI &amp; metrics design</li><li>Data visualization</li><li>Ad-hoc &amp; self-serve analytics</li><li>Forecasting &amp; trend analysis</li><li>Data storytelling</li></ul>
+    <h4>Technologies</h4>
+    <div class="job-tags"><span>Power BI</span><span>Tableau</span><span>SQL</span><span>Python</span><span>Excel</span></div>
+    <a href="contact.html" class="btn btn--primary">Discuss this service</a>
+  </div>
 
   <footer class="site-footer">
     <div class="container footer-grid">

@@ -24,6 +24,34 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // Service detail modal
+  var modal = document.getElementById('service-modal');
+  if (modal) {
+    var mbody = modal.querySelector('.modal-body');
+    var openModal = function (key) {
+      var src = document.getElementById('svc-' + key);
+      if (!src) return;
+      mbody.innerHTML = src.innerHTML;
+      modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+    var closeModal = function () {
+      modal.classList.remove('open'); modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+    document.querySelectorAll('[data-service]').forEach(function (c) {
+      c.addEventListener('click', function () { openModal(c.getAttribute('data-service')); });
+    });
+    modal.querySelectorAll('[data-close]').forEach(function (x) { x.addEventListener('click', closeModal); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+  }
+
+  // Home-page service tiles link through to the Services page
+  document.querySelectorAll('.service-grid .service').forEach(function (el) {
+    el.style.cursor = 'pointer';
+    el.addEventListener('click', function () { window.location.href = 'services.html'; });
+  });
+
   initHeroFX();
 });
 
