@@ -1,3 +1,15 @@
+// Google Analytics (GA4)
+(function () {
+  var id = 'G-M5EHVH5XMX';
+  var s = document.createElement('script'); s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', id);
+})();
+
 // TecheVision — interactions + per-page sci-fi hero effects
 document.addEventListener('DOMContentLoaded', function () {
   var toggle = document.querySelector('.nav-toggle');
