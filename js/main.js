@@ -1,13 +1,36 @@
-// Google Analytics (GA4)
+// Cookie consent + Google Analytics (GA loads only after the visitor accepts)
 (function () {
-  var id = 'G-M5EHVH5XMX';
-  var s = document.createElement('script'); s.async = true;
-  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
-  document.head.appendChild(s);
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = function () { dataLayer.push(arguments); };
-  gtag('js', new Date());
-  gtag('config', id);
+  var GA_ID = 'G-M5EHVH5XMX';
+  function loadGA() {
+    if (window.__gaLoaded) return; window.__gaLoaded = true;
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
+  }
+  var choice = null;
+  try { choice = localStorage.getItem('tv-consent'); } catch (e) {}
+  if (choice === 'accepted') { loadGA(); return; }
+  if (choice === 'declined') { return; }
+
+  function setChoice(v) { try { localStorage.setItem('tv-consent', v); } catch (e) {} }
+  function dismiss(b) { b.classList.remove('show'); setTimeout(function () { if (b.parentNode) b.parentNode.removeChild(b); }, 300); }
+  function showBanner() {
+    var b = document.createElement('div');
+    b.className = 'cookie-banner'; b.setAttribute('role', 'dialog'); b.setAttribute('aria-label', 'Cookie consent');
+    b.innerHTML = '<p>We use cookies to analyze site traffic and improve your experience. See our <a href="privacy.html">Privacy Policy</a>.</p>'
+      + '<div class="cookie-actions"><button type="button" class="btn btn--dark" data-cc="decline">Decline</button>'
+      + '<button type="button" class="btn btn--primary" data-cc="accept">Accept</button></div>';
+    document.body.appendChild(b);
+    requestAnimationFrame(function () { b.classList.add('show'); });
+    b.querySelector('[data-cc="accept"]').addEventListener('click', function () { setChoice('accepted'); loadGA(); dismiss(b); });
+    b.querySelector('[data-cc="decline"]').addEventListener('click', function () { setChoice('declined'); dismiss(b); });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', showBanner);
+  else showBanner();
 })();
 
 // TecheVision — interactions + per-page sci-fi hero effects
