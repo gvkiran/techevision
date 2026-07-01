@@ -338,6 +338,30 @@ strong{ color:var(--ink); }
 .job-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px; }
 .job-tags span{ font-family:var(--sans); font-size:.8rem; color:var(--ink); background:rgba(129,253,218,.06); border:1px solid var(--border-soft); border-radius:6px; padding:5px 12px; }
 .job .btn{ padding:11px 26px; }
+.job-actions{ display:flex; gap:12px; flex-wrap:wrap; }
+.job-actions .btn{ padding:11px 24px; }
+.job-tags .more{ color:var(--accent); align-self:center; font-family:var(--sans); font-size:.8rem; font-weight:700; }
+
+/* ---------- Job filters / search ---------- */
+.job-filters{ display:flex; flex-wrap:wrap; gap:12px; align-items:center; max-width:940px; margin:0 auto 14px; }
+.job-search{ position:relative; flex:1 1 260px; }
+.job-search svg{ position:absolute; left:14px; top:50%; transform:translateY(-50%); width:18px; height:18px; color:var(--muted); pointer-events:none; }
+.job-search input{ width:100%; padding:13px 14px 13px 44px; border:1px solid var(--border-soft); border-radius:var(--radius); background:rgba(0,0,0,.25); color:var(--ink); font:inherit; }
+.job-search input::placeholder{ color:#5f7385; }
+.job-search input:focus{ outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(129,253,218,.15); }
+.job-filters select{ padding:12px 38px 12px 14px; border:1px solid var(--border-soft); border-radius:var(--radius); background:rgba(0,0,0,.25); color:var(--ink); font:inherit; cursor:pointer; appearance:none; -webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2381fdda' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 13px center; }
+.job-filters select:focus{ outline:none; border-color:var(--accent); }
+.job-filters select option{ background:#0a1f33; color:var(--ink); }
+.job-filters .btn{ padding:12px 20px; }
+.job-count{ max-width:940px; margin:0 auto 24px; color:var(--muted); font-family:var(--sans); font-size:.84rem; letter-spacing:.04em; }
+
+/* ---------- Job detail modal grid ---------- */
+.jd-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:2px 28px; margin:20px 0 6px; }
+@media (max-width:520px){ .jd-grid{ grid-template-columns:1fr; } }
+.jd-row{ display:flex; flex-direction:column; gap:3px; padding:11px 0; border-bottom:1px solid var(--border-soft); }
+.jd-row span{ font-family:var(--sans); font-size:.7rem; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); }
+.jd-row strong{ color:var(--ink); }
 
 /* ---------- Clickable service cards ---------- */
 .card--service{ text-align:left; width:100%; font:inherit; cursor:pointer; color:inherit; display:block; }
