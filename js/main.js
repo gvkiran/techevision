@@ -104,8 +104,8 @@ function initHeroFX() {
   hero.addEventListener('mouseleave', function () { mouse.x = mouse.y = null; });
   if (mode === 'globe' || mode === 'orbit') {
     hero.addEventListener('pointerdown', function (e) { dragging = true; lastX = e.clientX; hero.style.cursor = 'grabbing'; });
-    window.addEventListener('pointermove', function (e) { if (dragging) { spin += (e.clientX - lastX) * 0.006; lastX = e.clientX; } });
-    window.addEventListener('pointerup', function () { if (dragging) { dragging = false; hero.style.cursor = 'grab'; } });
+    window.addEventListener('pointermove', function (e) { if (dragging) { document.body.style.userSelect = 'none'; spin += (e.clientX - lastX) * 0.006; lastX = e.clientX; } });
+    window.addEventListener('pointerup', function () { if (dragging) { dragging = false; hero.style.cursor = 'grab'; document.body.style.userSelect = ''; } });
   }
 
   function dot(x, y, r, alpha, color) {
