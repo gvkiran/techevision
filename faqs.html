@@ -9,6 +9,10 @@
   <meta name="author" content="TecheVision" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://techevision.com/faqs" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="manifest" href="assets/site.webmanifest" />
   <meta name="theme-color" content="#061624" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="TecheVision" />
@@ -20,11 +24,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Lusitana:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-  <link rel="manifest" href="assets/site.webmanifest" />
   <link rel="stylesheet" href="css/styles.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://techevision.com/"},{"@type":"ListItem","position":2,"name":"FAQ's","item":"https://techevision.com/faqs"}]}
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -68,31 +71,39 @@
       <div class="hero-grid">
         <div>
           <span class="eyebrow">FAQ's</span>
-          <h1>Frequently asked questions</h1>
-          <p>Can't find an answer? <a href="contact.html" style="color:var(--accent)">Reach out to our team.</a></p>
+          <h1>Frequently asked <span class="hl">questions</span></h1>
+          <p>Search below, or <a href="contact.html" style="color:var(--accent)">reach out to our team</a> if you can't find your answer.</p>
         </div>
       </div>
     </div>
   </section>
 
   <section class="section">
-    <div class="container faq reveal">
-      <details open><summary>What is TecheVision?</summary><p>TecheVision is an IT consulting company that provides services to businesses of all sizes. We specialize in helping businesses improve their technology infrastructure and streamline their operations.</p></details>
-      <details><summary>What services does TecheVision offer?</summary><p>We provide an extensive array of IT consulting services, encompassing network design and implementation, Java development, data engineering, Python development, data analytics, cybersecurity, cloud solutions, software development, and manual and automation QA testing. We also offer training programs and job placement assistance to support career advancement in the IT industry.</p></details>
-      <details><summary>What types of businesses does TecheVision work with?</summary><p>TecheVision works with businesses of all sizes and across a wide range of industries — small startups, mid-sized companies, and large enterprises. Our team has experience in healthcare, finance, retail, and more. No matter your industry or size, we can help you improve your technology infrastructure and streamline operations.</p></details>
-      <details><summary>What is the experience of TecheVision's team?</summary><p>Our team is comprised of experienced professionals with a wide range of expertise in IT consulting. Members come from diverse backgrounds and have worked with businesses across different industries and sizes, with experience across technology areas such as Microsoft and AWS, continuously improving to stay up to date with the latest trends.</p></details>
-      <details><summary>What sets TecheVision apart from other IT consulting firms?</summary><p>TecheVision distinguishes itself through its team of experienced and certified consultants, deep industry knowledge, commitment to innovation, and dedication to delivering exceptional results. We prioritize client satisfaction and strive to exceed expectations on every project.</p></details>
-      <details><summary>What industries does TecheVision specialize in?</summary><p>We work with businesses across various industries, including healthcare, finance, manufacturing, retail, education, government, and more. Our expertise spans different sectors, enabling us to address the unique challenges and requirements of each industry.</p></details>
-      <details><summary>How does TecheVision approach projects?</summary><p>We follow a collaborative and client-centric approach. We start by understanding your business goals and challenges, conduct a thorough assessment of your current IT environment, then develop a customized strategy and implementation plan — maintaining clear communication and regular updates to ensure successful outcomes.</p></details>
-      <details><summary>What is TecheVision's approach to cloud computing?</summary><p>We take a strategic approach to cloud computing, helping businesses leverage the cloud to improve operations and reduce costs. We develop customized cloud solutions that integrate seamlessly with existing systems, with expertise across AWS, Azure, and Google Cloud to help you choose the right platform.</p></details>
-      <details><summary>How can I get started with TecheVision's services?</summary><p>Simply reach out through the <a href="contact.html">contact form</a> or give us a call. We'll schedule a consultation to discuss your requirements, assess your needs, and propose tailored solutions to help you achieve your business goals.</p></details>
+    <div class="container">
+      <div class="faq-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+        <input id="faq-search" type="search" placeholder="Search questions…" aria-label="Search FAQs" />
+      </div>
+      <div class="faq reveal">
+        <details open><summary>What is TecheVision?</summary><p>TecheVision is an IT consulting company that provides services to businesses of all sizes. We specialize in helping businesses improve their technology infrastructure and streamline their operations.</p></details>
+        <details><summary>What services does TecheVision offer?</summary><p>We provide an extensive array of IT consulting services, encompassing network design and implementation, Java development, data engineering, Python development, data analytics, cybersecurity, cloud solutions, software development, and manual and automation QA testing. We also offer training programs and job placement assistance to support career advancement in the IT industry.</p></details>
+        <details><summary>What types of businesses does TecheVision work with?</summary><p>TecheVision works with businesses of all sizes and across a wide range of industries — small startups, mid-sized companies, and large enterprises. Our team has experience in healthcare, finance, retail, and more. No matter your industry or size, we can help you improve your technology infrastructure and streamline operations.</p></details>
+        <details><summary>What is the experience of TecheVision's team?</summary><p>Our team is comprised of experienced professionals with a wide range of expertise in IT consulting. Members come from diverse backgrounds and have worked with businesses across different industries and sizes, with experience across technology areas such as Microsoft and AWS, continuously improving to stay up to date with the latest trends.</p></details>
+        <details><summary>What sets TecheVision apart from other IT consulting firms?</summary><p>TecheVision distinguishes itself through its team of experienced and certified consultants, deep industry knowledge, commitment to innovation, and dedication to delivering exceptional results. We prioritize client satisfaction and strive to exceed expectations on every project.</p></details>
+        <details><summary>What industries does TecheVision specialize in?</summary><p>We work with businesses across various industries, including healthcare, finance, manufacturing, retail, education, government, and more. Our expertise spans different sectors, enabling us to address the unique challenges and requirements of each industry.</p></details>
+        <details><summary>How does TecheVision approach projects?</summary><p>We follow a collaborative and client-centric approach. We start by understanding your business goals and challenges, conduct a thorough assessment of your current IT environment, then develop a customized strategy and implementation plan — maintaining clear communication and regular updates to ensure successful outcomes.</p></details>
+        <details><summary>What is TecheVision's approach to cloud computing?</summary><p>We take a strategic approach to cloud computing, helping businesses leverage the cloud to improve operations and reduce costs. We develop customized cloud solutions that integrate seamlessly with existing systems, with expertise across AWS, Azure, and Google Cloud to help you choose the right platform.</p></details>
+        <details><summary>How can I get started with TecheVision's services?</summary><p>Simply reach out through the <a href="contact.html">contact form</a> or give us a call. We'll schedule a consultation to discuss your requirements, assess your needs, and propose tailored solutions to help you achieve your business goals.</p></details>
+      </div>
+      <p class="faq-none" id="faq-none" hidden>No questions match your search. <a href="contact.html">Ask us directly →</a></p>
     </div>
   </section>
 
   <section class="band cta-band">
     <div class="container">
-      <span class="eyebrow" style="color:var(--accent)">Still have questions?</span>
+      <span class="eyebrow" style="color:var(--accent); justify-content:center">Still have questions?</span>
       <h2>We're here to help</h2>
+      <p class="lead">Can't find what you're looking for? Our team is one message away.</p>
       <a href="contact.html" class="btn btn--primary" style="margin-top:12px">Contact us</a>
     </div>
   </section>

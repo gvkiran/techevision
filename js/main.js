@@ -52,6 +52,23 @@ document.addEventListener('DOMContentLoaded', function () {
     el.addEventListener('click', function () { window.location.href = 'services.html'; });
   });
 
+  // FAQ live search
+  var faqSearch = document.getElementById('faq-search');
+  if (faqSearch) {
+    var faqItems = Array.prototype.slice.call(document.querySelectorAll('.faq details'));
+    var faqNone = document.getElementById('faq-none');
+    faqSearch.addEventListener('input', function () {
+      var q = faqSearch.value.trim().toLowerCase(), shown = 0;
+      faqItems.forEach(function (d) {
+        var match = q === '' || d.textContent.toLowerCase().indexOf(q) >= 0;
+        d.style.display = match ? '' : 'none';
+        d.open = !!(q && match);
+        if (match) shown++;
+      });
+      if (faqNone) faqNone.hidden = shown > 0;
+    });
+  }
+
   initHeroFX();
 });
 
