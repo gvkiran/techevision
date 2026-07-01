@@ -393,3 +393,5 @@ strong{ color:var(--ink); }
 .svc-list li::before{ content:""; position:absolute; left:0; top:4px; width:18px; height:18px; border-radius:50%; background:linear-gradient(135deg,var(--teal-1),var(--teal-3)); box-shadow:0 0 10px rgba(129,253,218,.5); }
 .svc-list li::after{ content:""; position:absolute; left:6px; top:9px; width:6px; height:3px; border-left:2px solid #04221b; border-bottom:2px solid #04221b; transform:rotate(-45deg); }
 .modal-body .btn{ margin-top:26px; }
+.form--bare{ background:transparent; border:0; box-shadow:none; padding:0; backdrop-filter:none; }
+.modal-body .modal-tag[hidden]{ display:none; }

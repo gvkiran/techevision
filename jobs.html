@@ -78,20 +78,11 @@
       <p class="job-count" id="jf-count"></p>
 
       <div class="jobs-list" id="jobs-list"></div>
-      <p class="jobs-empty" id="jobs-empty" hidden>No roles match your filters. <a href="#apply">Send your resume anyway →</a></p>
+      <p class="jobs-empty" id="jobs-empty" hidden>No roles match your filters. <a href="#" data-apply="">Send your resume anyway →</a></p>
     </div>
   </section>
 
-  <!-- Job detail modal -->
-  <div class="modal" id="job-modal" aria-hidden="true">
-    <div class="modal-overlay" data-close></div>
-    <div class="modal-card" role="dialog" aria-modal="true">
-      <button class="modal-close" aria-label="Close" data-close>&times;</button>
-      <div class="modal-body"></div>
-    </div>
-  </div>
-
-  <!-- General application -->
+  <!-- Why work with us -->
   <section class="section section--alt">
     <div class="container split">
       <div class="reveal">
@@ -105,9 +96,36 @@
         </ul>
         <p style="color:var(--ink); font-weight:700; margin-top:14px; font-family:var(--sans)">Apply now or refer a friend.</p>
       </div>
-      <div class="form reveal d1" id="apply">
-        <h3>Apply now</h3>
-        <form action="https://formsubmit.co/contact@techevision.com" method="POST" enctype="multipart/form-data">
+      <div class="reveal d1" style="display:grid; place-items:center;">
+        <div class="card" style="max-width:440px; text-align:center;">
+          <div class="icon" style="margin:0 auto 20px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M2 13h20"/></svg></div>
+          <h3>Ready to apply?</h3>
+          <p>Submit your details and resume in a quick popup — it takes about a minute. No account needed.</p>
+          <button type="button" class="btn btn--primary" data-apply="" style="margin-top:10px">Apply now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Job detail modal (read-only) -->
+  <div class="modal" id="job-modal" aria-hidden="true">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true">
+      <button class="modal-close" aria-label="Close" data-close>&times;</button>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Application modal (closes only via the X) -->
+  <div class="modal" id="apply-modal" aria-hidden="true">
+    <div class="modal-overlay"></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="apply-title">
+      <button class="modal-close" aria-label="Close application" data-apply-close>&times;</button>
+      <div class="modal-body">
+        <div class="modal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M2 13h20"/></svg></div>
+        <h3 id="apply-title">Apply now</h3>
+        <p class="modal-tag" id="apply-role-tag" hidden></p>
+        <form class="form form--bare" action="https://formsubmit.co/contact@techevision.com" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="_subject" value="New job application from techevision.com" />
           <input type="hidden" name="_captcha" value="true" />
           <input type="hidden" name="_template" value="table" />
@@ -152,7 +170,7 @@
         </form>
       </div>
     </div>
-  </section>
+  </div>
 
   <footer class="site-footer">
     <div class="container footer-grid">
