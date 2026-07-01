@@ -119,4 +119,21 @@
   if (clearBtn) clearBtn.addEventListener('click', function () { fSearch.value = ''; fMode.value = ''; fVisa.value = ''; fDate.value = ''; fLoc.value = ''; render(); });
 
   render();
+
+  // Structured data for Google Jobs (generated from the data above)
+  JOBS.forEach(function (j) {
+    var loc = (j.location || '').split(','); var city = (loc[0] || '').trim(); var region = (loc[1] || '').trim();
+    var vt = new Date(new Date(j.posted).getTime() + 60 * 86400000).toISOString().slice(0, 10);
+    var emp = { 'Full-time': 'FULL_TIME', 'Contract': 'CONTRACTOR', 'Part-time': 'PART_TIME', 'Internship': 'INTERN' }[j.type] || 'FULL_TIME';
+    var data = {
+      '@context': 'https://schema.org', '@type': 'JobPosting',
+      title: j.title, description: (j.description || j.summary || ''),
+      datePosted: j.posted, validThrough: vt, employmentType: emp,
+      hiringOrganization: { '@type': 'Organization', name: 'TecheVision', sameAs: 'https://techevision.com/', logo: 'https://techevision.com/assets/og-image.png' },
+      jobLocation: { '@type': 'Place', address: { '@type': 'PostalAddress', addressLocality: city, addressRegion: region, addressCountry: 'US' } }
+    };
+    if (/remote/i.test(j.mode)) { data.jobLocationType = 'TELECOMMUTE'; data.applicantLocationRequirements = { '@type': 'Country', name: 'USA' }; }
+    if (j.skills && j.skills.length) data.skills = j.skills.join(', ');
+    var sc = document.createElement('script'); sc.type = 'application/ld+json'; sc.textContent = JSON.stringify(data); document.head.appendChild(sc);
+  });
 })();
