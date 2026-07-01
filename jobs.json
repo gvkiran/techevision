@@ -11,7 +11,18 @@
     "posted": "2026-06-26",
     "summary": "Design and build robust, scalable Java applications and services for our clients.",
     "description": "You'll design, build, and maintain robust, scalable Java applications and microservices for our clients across industries. You'll collaborate closely with cross-functional teams to deliver secure, high-performance software, participate in code reviews, and help shape engineering best practices.",
-    "skills": ["Java", "Spring Boot", "REST APIs", "Microservices", "Hibernate", "SQL", "AWS", "Kafka", "JUnit", "CI/CD"]
+    "skills": [
+      "Java",
+      "Spring Boot",
+      "REST APIs",
+      "Microservices",
+      "Hibernate",
+      "SQL",
+      "AWS",
+      "Kafka",
+      "JUnit",
+      "CI/CD"
+    ]
   },
   {
     "id": "data-engineer",
@@ -25,7 +36,18 @@
     "posted": "2026-06-19",
     "summary": "Build and maintain reliable data pipelines and platforms that power analytics and ML.",
     "description": "You'll design and build reliable batch and streaming data pipelines, model data warehouses and lakehouses, and enforce data quality so analytics and machine learning teams can trust their data. You'll work across cloud platforms and collaborate with analysts and engineers.",
-    "skills": ["Python", "SQL", "Apache Spark", "Airflow", "Snowflake", "Kafka", "dbt", "AWS", "ETL/ELT", "Data Modeling"]
+    "skills": [
+      "Python",
+      "SQL",
+      "Apache Spark",
+      "Airflow",
+      "Snowflake",
+      "Kafka",
+      "dbt",
+      "AWS",
+      "ETL/ELT",
+      "Data Modeling"
+    ]
   },
   {
     "id": "data-analyst",
@@ -39,6 +61,41 @@
     "posted": "2026-06-30",
     "summary": "Turn data into clear, actionable insights and dashboards that drive decisions.",
     "description": "You'll transform raw data into clear, actionable insights — building dashboards and reports, defining KPIs, and helping stakeholders make better decisions. You'll partner with business teams to understand their questions and answer them with data.",
-    "skills": ["SQL", "Power BI", "Python", "Tableau", "Excel", "Statistics", "Data Visualization", "ETL", "Dashboards", "Storytelling"]
+    "skills": [
+      "SQL",
+      "Power BI",
+      "Python",
+      "Tableau",
+      "Excel",
+      "Statistics",
+      "Data Visualization",
+      "ETL",
+      "Dashboards",
+      "Storytelling"
+    ]
+  },
+  {
+    "id": "senior-java-developer-full-stack-developer",
+    "title": "Senior Java Developer / Full Stack Developer",
+    "type": "Contract",
+    "mode": "On-site",
+    "location": "Reston, VA (Onsite – In-person Interview Required)",
+    "level": "Senior",
+    "visa": "W2 only · H-1B transfer OK",
+    "interview": "",
+    "posted": "2026-07-01",
+    "summary": "Seeking a strong Java Developer / Full Stack Engineer with expertise in Core Java, Spring Boot, and Microservices, capable of working independently and delivering scalabl",
+    "description": "Seeking a strong Java Developer / Full Stack Engineer with expertise in Core Java, Spring Boot, and Microservices, capable of working independently and delivering scalable cloud-based solutions.\n\nKey Responsibilities:\n• Design, develop & implement large-scale applications\n• Build microservices & REST APIs using Spring Boot\n• Work on cloud-based applications (AWS environment)\n• Contribute to architecture & technical design decisions\n• Lead tasks, review code & mentor junior developers\n• Collaborate with cross-functional teams & stakeholders\n• Ensure application performance, scalability & reliability\n\nPreferred:\n• Frontend (Angular / React / TypeScript)\n• DevOps / CI-CD exposure\n• AWS Certification\n• Tech Lead experience",
+    "skills": [
+      "API",
+      "Agile",
+      "Java",
+      "Spring Boot",
+      "AWS",
+      "React",
+      "Angular",
+      "TypeScript",
+      "DevOps"
+    ]
   }
 ]
