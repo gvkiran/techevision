@@ -145,6 +145,30 @@
           <input id="j-email" type="email" name="email" required placeholder="you@example.com" />
           <label for="j-role">Role you're applying for</label>
           <input id="j-role" type="text" name="role" placeholder="e.g. Java Developer" />
+          <label for="j-visa">Visa / work authorization *</label>
+          <select id="j-visa" name="visa_type" required>
+            <option value="" disabled selected>Select one…</option>
+            <option>US Citizen</option>
+            <option>Green Card / Permanent Resident</option>
+            <option>H-1B</option>
+            <option>H-4 EAD</option>
+            <option>L-1</option>
+            <option>L-2 EAD</option>
+            <option>F-1 OPT</option>
+            <option>F-1 CPT</option>
+            <option>TN</option>
+            <option>Other</option>
+          </select>
+          <label for="j-visa-valid">Visa validity (valid until)</label>
+          <input id="j-visa-valid" type="text" name="visa_validity" placeholder="e.g. 06/2027, or N/A" />
+          <label for="j-sponsor">Do you require sponsorship? *</label>
+          <select id="j-sponsor" name="sponsorship_required" required>
+            <option value="" disabled selected>Select one…</option>
+            <option>No — I don't need sponsorship</option>
+            <option>Yes — now</option>
+            <option>Yes — in the future</option>
+            <option>Not sure</option>
+          </select>
           <label for="j-resume">Resume / CV *</label>
           <input id="j-resume" type="file" name="attachment" accept=".pdf,.doc,.docx,.txt" required />
           <label for="j-msg">Message (optional)</label>
