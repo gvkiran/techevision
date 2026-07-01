@@ -86,6 +86,10 @@ strong{ color:var(--ink); }
 .eyebrow::before{ content:""; width:28px; height:2px; background:var(--accent); box-shadow:var(--glow); display:inline-block; }
 .center .eyebrow{ justify-content:center; }
 .section-head{ max-width:760px; } .center .section-head{ margin:0 auto; }
+/* Left-align section intros so they line up with the content/grids below */
+.section-head.center{ text-align:left; margin:0; }
+.section-head.center .eyebrow{ justify-content:flex-start; }
+.section-head.center .lead{ margin-left:0; margin-right:0; }
 
 /* ---------- Buttons ---------- */
 .btn{ display:inline-flex; align-items:center; gap:9px; font-family:var(--sans);
@@ -207,7 +211,7 @@ strong{ color:var(--ink); }
 .service span{ color:var(--muted); font-size:.9rem; font-family:var(--sans); }
 
 /* tech chips */
-.stack{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
+.stack{ display:flex; flex-wrap:wrap; gap:14px; justify-content:flex-start; }
 .chip{ font-family:var(--sans); font-weight:700; font-size:.92rem; letter-spacing:.03em; color:var(--ink);
   background:var(--panel); border:1px solid var(--border-soft); border-radius:999px; padding:11px 22px; backdrop-filter:blur(6px);
   transition:transform .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease), box-shadow .2s var(--ease); }
