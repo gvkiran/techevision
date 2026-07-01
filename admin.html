@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Job Builder | TecheVision (private)</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#061624" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Lusitana:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .admin-wrap{ max-width:1100px; margin:0 auto; padding:40px 26px 80px; }
+    .admin-head{ display:flex; align-items:center; gap:14px; margin-bottom:8px; }
+    .admin-grid{ display:grid; grid-template-columns:1fr 1fr; gap:30px; align-items:start; margin-top:30px; }
+    @media (max-width:860px){ .admin-grid{ grid-template-columns:1fr; } }
+    .admin-panel{ background:var(--panel); border:1px solid var(--border-soft); border-radius:var(--radius-lg); padding:26px 28px; backdrop-filter:blur(8px); }
+    .admin-panel h3{ margin-top:0; }
+    .row2{ display:grid; grid-template-columns:1fr 1fr; gap:0 16px; }
+    @media (max-width:520px){ .row2{ grid-template-columns:1fr; } }
+    .joblist-item{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 16px; border:1px solid var(--border-soft); border-radius:var(--radius); margin-bottom:10px; }
+    .joblist-item strong{ color:var(--ink); font-family:var(--sans); }
+    .joblist-item .meta{ color:var(--muted); font-size:.82rem; font-family:var(--sans); }
+    .joblist-actions button{ margin-left:8px; }
+    .btn--sm{ padding:7px 14px; font-size:.74rem; }
+    .btn--danger{ background:transparent; color:#ff8a8a; border:1px solid rgba(255,138,138,.4); }
+    .btn--danger:hover{ background:rgba(255,138,138,.12); color:#ffb0b0; }
+    #output{ width:100%; min-height:220px; font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.8rem; background:rgba(0,0,0,.35); color:#cfe; border:1px solid var(--border-soft); border-radius:var(--radius); padding:14px; resize:vertical; }
+    .steps-note{ background:rgba(129,253,218,.06); border:1px solid var(--border); border-radius:var(--radius); padding:16px 18px; margin-top:16px; font-size:.92rem; color:var(--text); }
+    .steps-note code{ background:rgba(0,0,0,.35); padding:2px 6px; border-radius:4px; color:var(--accent); font-size:.85em; }
+    .flash{ display:none; color:var(--accent); font-family:var(--sans); font-weight:700; font-size:.85rem; margin-left:12px; }
+    .preview-wrap{ margin-top:18px; }
+  </style>
+</head>
+<body>
+  <div class="admin-wrap">
+    <div class="admin-head">
+      <svg class="brand-mark" viewBox="0 0 30 26" aria-hidden="true" style="width:34px;height:30px"><rect x="0" y="0" width="7" height="26" fill="#37766c"/><rect x="11" y="0" width="7" height="26" fill="#52a890"/><rect x="22" y="0" width="7" height="26" fill="#81fdda"/></svg>
+      <div>
+        <h1 style="font-size:1.8rem;margin:0">Job Builder</h1>
+        <p class="muted" style="margin:2px 0 0">Private tool — add or edit roles, then copy the result into <code>jobs.json</code> and push. <a href="jobs.html" style="color:var(--accent)">View live jobs →</a></p>
+      </div>
+    </div>
+
+    <div class="admin-grid">
+      <!-- FORM -->
+      <div class="admin-panel">
+        <h3 id="form-title">Add a job</h3>
+        <div class="form form--bare">
+          <label for="f-title">Job title *</label>
+          <input id="f-title" type="text" placeholder="e.g. Senior Java Developer" />
+          <div class="row2">
+            <div>
+              <label for="f-type">Type</label>
+              <select id="f-type"><option>Full-time</option><option>Part-time</option><option>Contract</option><option>Internship</option></select>
+            </div>
+            <div>
+              <label for="f-mode">Work mode</label>
+              <select id="f-mode"><option>Hybrid</option><option>Remote</option><option>On-site</option></select>
+            </div>
+          </div>
+          <div class="row2">
+            <div>
+              <label for="f-location">Location</label>
+              <input id="f-location" type="text" value="Ashburn, VA" />
+            </div>
+            <div>
+              <label for="f-level">Experience level</label>
+              <input id="f-level" type="text" placeholder="e.g. Mid–Senior" />
+            </div>
+          </div>
+          <div class="row2">
+            <div>
+              <label for="f-visa">Visa / work authorization</label>
+              <input id="f-visa" type="text" placeholder="e.g. No sponsorship" />
+            </div>
+            <div>
+              <label for="f-posted">Date posted</label>
+              <input id="f-posted" type="date" />
+            </div>
+          </div>
+          <label for="f-interview">Interview process</label>
+          <input id="f-interview" type="text" placeholder="e.g. Phone screen → technical → panel" />
+          <label for="f-summary">Short summary (one line, shown on the card)</label>
+          <input id="f-summary" type="text" placeholder="One sentence about the role" />
+          <label for="f-description">Full description</label>
+          <textarea id="f-description" rows="5" placeholder="A paragraph or two about the role and responsibilities"></textarea>
+          <label for="f-skills">Key skills (comma-separated, up to ~10)</label>
+          <textarea id="f-skills" rows="2" placeholder="Java, Spring Boot, SQL, AWS, ..."></textarea>
+          <div style="margin-top:18px; display:flex; gap:10px; align-items:center; flex-wrap:wrap">
+            <button type="button" class="btn btn--primary" id="save-btn">Add job</button>
+            <button type="button" class="btn btn--dark" id="clear-btn">Clear form</button>
+            <span class="flash" id="flash">Saved ✓</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- LIST + PREVIEW -->
+      <div class="admin-panel">
+        <h3>Current jobs (<span id="job-count">0</span>)</h3>
+        <div id="joblist"></div>
+        <div class="preview-wrap">
+          <h4 style="color:var(--muted);font-family:var(--sans);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase">Live preview</h4>
+          <div class="jobs-list" id="preview" style="grid-template-columns:1fr"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPORT -->
+    <div class="admin-panel" style="margin-top:30px">
+      <h3>Save your changes</h3>
+      <p style="color:var(--muted)">This is your updated <code>jobs.json</code>. Copy it, replace the contents of <code>jobs.json</code> in your project, and <code>git push</code>.</p>
+      <textarea id="output" readonly></textarea>
+      <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap; align-items:center">
+        <button type="button" class="btn btn--primary" id="copy-btn">Copy JSON</button>
+        <button type="button" class="btn btn--dark" id="download-btn">Download jobs.json</button>
+        <span class="flash" id="flash2">Copied ✓</span>
+      </div>
+      <div class="steps-note">
+        <strong>To publish:</strong> 1) Copy the JSON above. 2) In VS Code, open <code>jobs.json</code>, select all, paste, save. 3) Run <code>git add -A &amp;&amp; git commit -m "Update jobs" &amp;&amp; git push</code>. Vercel redeploys in seconds and the new list is live.
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var jobs = [];
+    var editingId = null;
+    var $ = function (id) { return document.getElementById(id); };
+    function slug(s) { return String(s || '').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''); }
+    function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+    function today() { var d = new Date(); return d.toISOString().slice(0, 10); }
+    function daysAgo(iso){ var d=new Date(iso); return Math.floor((Date.now()-d.getTime())/86400000); }
+    function postedLabel(iso){ if(!iso)return''; var n=daysAgo(iso); if(n<=0)return'Today'; if(n===1)return'1 day ago'; if(n<30)return n+' days ago'; if(n<60)return'1 month ago'; return Math.floor(n/30)+' months ago'; }
+
+    $('f-posted').value = today();
+
+    // Load current jobs from jobs.json
+    fetch('jobs.json', { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : []; })
+      .then(function (data) { jobs = Array.isArray(data) ? data : []; renderAll(); })
+      .catch(function () { renderAll(); /* start empty if it can't load (e.g. opened as a local file) */ });
+
+    function readForm() {
+      var title = $('f-title').value.trim();
+      if (!title) { alert('Please enter a job title.'); return null; }
+      var skills = $('f-skills').value.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+      return {
+        id: editingId || slug(title),
+        title: title,
+        type: $('f-type').value,
+        mode: $('f-mode').value,
+        location: $('f-location').value.trim(),
+        level: $('f-level').value.trim(),
+        visa: $('f-visa').value.trim(),
+        interview: $('f-interview').value.trim(),
+        posted: $('f-posted').value || today(),
+        summary: $('f-summary').value.trim(),
+        description: $('f-description').value.trim(),
+        skills: skills
+      };
+    }
+
+    function clearForm() {
+      editingId = null;
+      ['f-title', 'f-level', 'f-visa', 'f-interview', 'f-summary', 'f-description', 'f-skills'].forEach(function (id) { $(id).value = ''; });
+      $('f-location').value = 'Ashburn, VA'; $('f-type').value = 'Full-time'; $('f-mode').value = 'Hybrid'; $('f-posted').value = today();
+      $('form-title').textContent = 'Add a job'; $('save-btn').textContent = 'Add job';
+      previewFromForm();
+    }
+
+    function saveJob() {
+      var job = readForm(); if (!job) return;
+      var idx = jobs.findIndex(function (j) { return j.id === job.id; });
+      if (idx >= 0) jobs[idx] = job; else jobs.push(job);
+      flash('flash'); clearForm(); renderAll();
+    }
+
+    function editJob(id) {
+      var j = jobs.filter(function (x) { return x.id === id; })[0]; if (!j) return;
+      editingId = j.id;
+      $('f-title').value = j.title || ''; $('f-type').value = j.type || 'Full-time'; $('f-mode').value = j.mode || 'Hybrid';
+      $('f-location').value = j.location || ''; $('f-level').value = j.level || ''; $('f-visa').value = j.visa || '';
+      $('f-interview').value = j.interview || ''; $('f-posted').value = j.posted || today();
+      $('f-summary').value = j.summary || ''; $('f-description').value = j.description || ''; $('f-skills').value = (j.skills || []).join(', ');
+      $('form-title').textContent = 'Edit job'; $('save-btn').textContent = 'Update job';
+      previewFromForm();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function deleteJob(id) {
+      if (!confirm('Remove this job from the list?')) return;
+      jobs = jobs.filter(function (j) { return j.id !== id; });
+      renderAll();
+    }
+
+    function cardHTML(j) {
+      var top = (j.skills || []).slice(0, 6).map(function (s) { return '<span>' + esc(s) + '</span>'; }).join('');
+      var extra = (j.skills || []).length > 6 ? '<span class="more">+' + ((j.skills.length) - 6) + ' more</span>' : '';
+      return '<article class="job"><div class="job-head"><h3>' + esc(j.title || 'Untitled') + '</h3><span class="job-type">' + esc(j.type) + '</span></div>'
+        + '<div class="job-meta"><span>' + esc(j.location) + '</span><span>' + esc(j.mode) + '</span>' + (j.level ? '<span>' + esc(j.level) + '</span>' : '') + '<span>' + postedLabel(j.posted) + '</span></div>'
+        + '<p>' + esc(j.summary) + '</p><div class="job-tags">' + top + extra + '</div></article>';
+    }
+
+    function previewFromForm() {
+      var t = $('f-title').value.trim();
+      if (!t) { $('preview').innerHTML = '<p style="color:var(--muted)">Fill the form to preview the card…</p>'; return; }
+      $('preview').innerHTML = cardHTML(readFormSafe());
+    }
+    function readFormSafe() {
+      return { title: $('f-title').value, type: $('f-type').value, mode: $('f-mode').value, location: $('f-location').value, level: $('f-level').value, posted: $('f-posted').value || today(), summary: $('f-summary').value, skills: $('f-skills').value.split(',').map(function (s) { return s.trim(); }).filter(Boolean) };
+    }
+
+    function renderList() {
+      $('job-count').textContent = jobs.length;
+      if (!jobs.length) { $('joblist').innerHTML = '<p style="color:var(--muted)">No jobs yet — add one on the left.</p>'; return; }
+      $('joblist').innerHTML = jobs.map(function (j) {
+        return '<div class="joblist-item"><div><strong>' + esc(j.title) + '</strong><div class="meta">' + esc(j.type) + ' · ' + esc(j.mode) + ' · ' + esc(j.location) + '</div></div>'
+          + '<div class="joblist-actions"><button class="btn btn--dark btn--sm" data-edit="' + esc(j.id) + '">Edit</button><button class="btn btn--danger btn--sm" data-del="' + esc(j.id) + '">Delete</button></div></div>';
+      }).join('');
+      $('joblist').querySelectorAll('[data-edit]').forEach(function (b) { b.addEventListener('click', function () { editJob(b.getAttribute('data-edit')); }); });
+      $('joblist').querySelectorAll('[data-del]').forEach(function (b) { b.addEventListener('click', function () { deleteJob(b.getAttribute('data-del')); }); });
+    }
+
+    function renderAll() { renderList(); $('output').value = JSON.stringify(jobs, null, 2); previewFromForm(); }
+
+    function flash(id) { var f = $(id); f.style.display = 'inline'; setTimeout(function () { f.style.display = 'none'; }, 1600); }
+
+    $('save-btn').addEventListener('click', saveJob);
+    $('clear-btn').addEventListener('click', clearForm);
+    $('copy-btn').addEventListener('click', function () { navigator.clipboard.writeText($('output').value).then(function () { flash('flash2'); }); });
+    $('download-btn').addEventListener('click', function () {
+      var blob = new Blob([$('output').value], { type: 'application/json' });
+      var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'jobs.json'; a.click();
+    });
+    ['f-title', 'f-type', 'f-mode', 'f-location', 'f-level', 'f-summary', 'f-skills', 'f-posted'].forEach(function (id) {
+      $(id).addEventListener('input', previewFromForm);
+    });
+    previewFromForm();
+  })();
+  </script>
+</body>
+</html>

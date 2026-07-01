@@ -1,0 +1,44 @@
+[
+  {
+    "id": "java-developer",
+    "title": "Java Developer",
+    "type": "Full-time",
+    "mode": "Hybrid",
+    "location": "Ashburn, VA",
+    "level": "Mid–Senior",
+    "visa": "No sponsorship",
+    "interview": "Phone screen → technical round → panel",
+    "posted": "2026-06-26",
+    "summary": "Design and build robust, scalable Java applications and services for our clients.",
+    "description": "You'll design, build, and maintain robust, scalable Java applications and microservices for our clients across industries. You'll collaborate closely with cross-functional teams to deliver secure, high-performance software, participate in code reviews, and help shape engineering best practices.",
+    "skills": ["Java", "Spring Boot", "REST APIs", "Microservices", "Hibernate", "SQL", "AWS", "Kafka", "JUnit", "CI/CD"]
+  },
+  {
+    "id": "data-engineer",
+    "title": "Data Engineer",
+    "type": "Full-time",
+    "mode": "Remote",
+    "location": "Ashburn, VA",
+    "level": "Mid–Senior",
+    "visa": "H-1B transfer OK",
+    "interview": "Video screen + technical round",
+    "posted": "2026-06-19",
+    "summary": "Build and maintain reliable data pipelines and platforms that power analytics and ML.",
+    "description": "You'll design and build reliable batch and streaming data pipelines, model data warehouses and lakehouses, and enforce data quality so analytics and machine learning teams can trust their data. You'll work across cloud platforms and collaborate with analysts and engineers.",
+    "skills": ["Python", "SQL", "Apache Spark", "Airflow", "Snowflake", "Kafka", "dbt", "AWS", "ETL/ELT", "Data Modeling"]
+  },
+  {
+    "id": "data-analyst",
+    "title": "Data Analyst",
+    "type": "Full-time",
+    "mode": "Hybrid",
+    "location": "Ashburn, VA",
+    "level": "Entry–Mid",
+    "visa": "Sponsorship available",
+    "interview": "Video interview + case study",
+    "posted": "2026-06-30",
+    "summary": "Turn data into clear, actionable insights and dashboards that drive decisions.",
+    "description": "You'll transform raw data into clear, actionable insights — building dashboards and reports, defining KPIs, and helping stakeholders make better decisions. You'll partner with business teams to understand their questions and answer them with data.",
+    "skills": ["SQL", "Power BI", "Python", "Tableau", "Excel", "Statistics", "Data Visualization", "ETL", "Dashboards", "Storytelling"]
+  }
+]
