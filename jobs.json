@@ -97,5 +97,24 @@
       "TypeScript",
       "DevOps"
     ]
+  },
+  {
+    "id": "python-developer",
+    "title": "Python Developer",
+    "type": "Full-time",
+    "mode": "On-site",
+    "location": "Manhattan, NY (5 Days Onsite)",
+    "level": "Mid–Senior",
+    "visa": "",
+    "interview": "",
+    "posted": "2026-07-24",
+    "summary": "",
+    "description": "",
+    "skills": [
+      "Manhattan",
+      "Python",
+      "AWS",
+      "React"
+    ]
   }
 ]
