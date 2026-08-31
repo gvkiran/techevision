@@ -1,7 +1,7 @@
 # TecheVision Website
 
 The official website for **TecheVision** — IT consulting services. This is a plain, static
-HTML/CSS/JS site (no build step, no framework), hosted free on **GitHub Pages** with the custom
+HTML/CSS/JS site (no build step, no framework), hosted on **Vercel** (auto-deploys from this GitHub repo) with the custom
 domain **techevision.com**.
 
 It replaces the old GoDaddy Website Builder site so the content is fully owned and editable here.
@@ -18,7 +18,7 @@ It replaces the old GoDaddy Website Builder site so the content is fully owned a
 ├── careers.html      # Careers (job openings + apply form)
 ├── css/styles.css    # All styling (colors are CSS variables at the top)
 ├── js/main.js        # Mobile menu + auto footer year
-├── CNAME             # Custom domain for GitHub Pages (techevision.com)
+├── vercel.json       # Vercel config: clean URLs + security headers
 └── .nojekyll         # Tells GitHub Pages to serve files as-is
 ```
 
@@ -39,7 +39,7 @@ git commit -m "Describe your change"
 git push
 ```
 
-GitHub Pages redeploys automatically within ~1 minute of each push.
+Vercel redeploys automatically within ~1 minute of each push.
 
 ## Forms
 
@@ -53,6 +53,9 @@ that emails submissions to `contact@techevision.com` — no server required.
 
 ## Hosting & domain
 
-- **Hosting:** GitHub Pages (free, automatic HTTPS).
-- **Domain:** `techevision.com` stays registered at GoDaddy; only the DNS records point to
-  GitHub Pages. See the migration notes shared in chat for the exact DNS values.
+- **Hosting:** Vercel (free tier, automatic HTTPS). Vercel is connected to this GitHub repo
+  and redeploys on every `git push`. Behavior is configured in `vercel.json`
+  (clean URLs + security headers).
+- **Domain:** `techevision.com` stays registered at GoDaddy; the domain is added and
+  verified in the Vercel dashboard (Project → Settings → Domains), with GoDaddy DNS pointing
+  to Vercel. (The old GitHub Pages `CNAME` file was removed on purpose — Vercel doesn't use it.)
