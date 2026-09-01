@@ -21,7 +21,7 @@
   function showBanner() {
     var b = document.createElement('div');
     b.className = 'cookie-banner'; b.setAttribute('role', 'dialog'); b.setAttribute('aria-label', 'Cookie consent');
-    b.innerHTML = '<p>We use cookies to analyze site traffic and improve your experience. See our <a href="privacy.html">Privacy Policy</a>.</p>'
+    b.innerHTML = '<p>We use cookies to analyze site traffic and improve your experience. See our <a href="/privacy">Privacy Policy</a>.</p>'
       + '<div class="cookie-actions"><button type="button" class="btn btn--dark" data-cc="decline">Decline</button>'
       + '<button type="button" class="btn btn--primary" data-cc="accept">Accept</button></div>';
     document.body.appendChild(b);
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Home-page service tiles link through to the Services page
   document.querySelectorAll('.service-grid .service').forEach(function (el) {
     el.style.cursor = 'pointer';
-    el.addEventListener('click', function () { window.location.href = 'services.html'; });
+    el.addEventListener('click', function () { window.location.href = '/services'; });
   });
 
   // FAQ live search

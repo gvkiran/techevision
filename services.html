@@ -20,6 +20,7 @@
   <meta property="og:url" content="https://techevision.com/services" />
   <meta property="og:image" content="https://techevision.com/assets/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://techevision.com/assets/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Lusitana:wght@400;700&display=swap" rel="stylesheet" />
@@ -28,25 +29,25 @@
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://techevision.com/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://techevision.com/services"}]}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"ItemList","name":"TecheVision Services","itemListElement":[{"@type":"ListItem","position":1,"name":"Data Engineering"},{"@type":"ListItem","position":2,"name":"Java Development"},{"@type":"ListItem","position":3,"name":"Python Development"},{"@type":"ListItem","position":4,"name":"Cloud Computing"},{"@type":"ListItem","position":5,"name":"QA & Test Automation"},{"@type":"ListItem","position":6,"name":"Data Analytics"}]}
+  {"@context":"https://schema.org","@type":"ItemList","name":"TecheVision Services","itemListElement":[{"@type":"ListItem","position":1,"name":"Data Engineering","url":"https://techevision.com/data-engineering-services"},{"@type":"ListItem","position":2,"name":"Java Development","url":"https://techevision.com/java-development-services"},{"@type":"ListItem","position":3,"name":"Python Development","url":"https://techevision.com/python-development-services"},{"@type":"ListItem","position":4,"name":"Cloud Computing","url":"https://techevision.com/cloud-computing-services"},{"@type":"ListItem","position":5,"name":"QA & Test Automation","url":"https://techevision.com/qa-testing-services"},{"@type":"ListItem","position":6,"name":"Data Analytics","url":"https://techevision.com/data-analytics-services"}]}
   </script>
 </head>
 <body>
 
   <header class="site-header">
     <div class="container nav">
-      <a href="index.html" class="brand" aria-label="TecheVision home">
+      <a href="/" class="brand" aria-label="TecheVision home">
         <svg class="brand-mark" viewBox="0 0 30 26" aria-hidden="true"><rect x="0" y="0" width="7" height="26" fill="#37766c"/><rect x="11" y="0" width="7" height="26" fill="#52a890"/><rect x="22" y="0" width="7" height="26" fill="#81fdda"/></svg>
         <span class="brand-word"><span class="brand-name">TECHEVISION</span><span class="brand-tag">With you on every step</span></span>
       </a>
       <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html" class="active">Services</a></li>
-        <li><a href="clients.html">Clients</a></li>
-        <li><a href="learn.html">Learn</a></li>
-        <li><a href="jobs.html">Jobs</a></li>
-        <li class="nav-cta"><a href="contact.html" class="btn btn--primary">Contact</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/services" class="active">Services</a></li>
+        <li><a href="/clients">Clients</a></li>
+        <li><a href="/learn">Learn</a></li>
+        <li><a href="/jobs">Jobs</a></li>
+        <li class="nav-cta"><a href="/contact" class="btn btn--primary">Contact</a></li>
       </ul>
     </div>
   </header>
@@ -58,7 +59,7 @@
           <span class="eyebrow">Services</span>
           <h1>Professional IT consulting, end&nbsp;to&nbsp;end</h1>
           <p>From data and cloud to software and quality engineering — spin the ring or tap a service to see exactly how we can help.</p>
-          <a href="contact.html" class="btn btn--primary">Request a Consultation</a>
+          <a href="/contact" class="btn btn--primary">Request a Consultation</a>
         </div>
         <div class="hero-art" id="service-orbit" role="group" aria-label="Interactive services ring"></div>
       </div>
@@ -108,6 +109,30 @@
     </div>
   </section>
 
+  <section class="section" aria-label="In-depth service pages">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Explore in depth</span>
+        <h2>Detailed service pages</h2>
+        <p class="lead">Full details on each service — scope, approach, technologies, and FAQs.</p>
+      </div>
+      <div class="svc-index reveal">
+        <a href="/data-engineering-services">Data Engineering</a>
+        <a href="/java-development-services">Java Development</a>
+        <a href="/python-development-services">Python Development</a>
+        <a href="/cloud-computing-services">Cloud Computing</a>
+        <a href="/qa-testing-services">QA & Test Automation</a>
+        <a href="/data-analytics-services">Data Analytics</a>
+      </div>
+    </div>
+  </section>
+  <style>
+  .svc-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:40px}
+  .svc-index a{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 18px;border:1px solid rgba(130,180,170,.28);border-radius:12px;font-weight:700;color:inherit;text-decoration:none;transition:border-color .2s,transform .2s}
+  .svc-index a:hover{border-color:var(--accent,#52a890);transform:translateY(-2px)}
+  .svc-index a::after{content:"\2192";color:var(--accent,#52a890);font-weight:400}
+  </style>
+
   <section class="section section--alt">
     <div class="container split">
       <div class="reveal">
@@ -120,7 +145,7 @@
           <li>Clear communication and regular updates</li>
           <li>Measurable, impactful results</li>
         </ul>
-        <a href="contact.html" class="btn btn--dark" style="margin-top:18px">Schedule a consultation</a>
+        <a href="/contact" class="btn btn--dark" style="margin-top:18px">Schedule a consultation</a>
       </div>
       <div class="media reveal d1" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M6 8l3 3-3 3M13 13h4"/></svg>
@@ -133,7 +158,7 @@
       <span class="eyebrow" style="color:var(--accent)">Get started</span>
       <h2>Let's discuss your project</h2>
       <p class="lead">Book a consultation with one of our experts today.</p>
-      <a href="contact.html" class="btn btn--primary" style="margin-top:12px">Contact us</a>
+      <a href="/contact" class="btn btn--primary" style="margin-top:12px">Contact us</a>
     </div>
   </section>
 
@@ -156,7 +181,7 @@
     <ul class="svc-list"><li>Batch &amp; real-time streaming pipelines</li><li>Cloud data warehouses &amp; lakehouses</li><li>ETL/ELT design and data modeling</li><li>Data quality, testing &amp; observability</li><li>Platform migration &amp; modernization</li><li>Orchestration &amp; automation</li></ul>
     <h4>Technologies</h4>
     <div class="job-tags"><span>Python</span><span>Apache Spark</span><span>Airflow</span><span>Snowflake</span><span>dbt</span><span>Kafka</span><span>AWS / Azure</span></div>
-    <a href="contact.html" class="btn btn--primary">Discuss this service</a>
+    <a href="/contact" class="btn btn--primary">Discuss this service</a>
   </div>
 
   <div class="svc-source" id="svc-java-development" hidden>
@@ -168,7 +193,7 @@
     <ul class="svc-list"><li>Microservices &amp; REST APIs</li><li>Enterprise application development</li><li>Legacy modernization &amp; refactoring</li><li>System &amp; third-party integration</li><li>Performance tuning &amp; hardening</li><li>Code review &amp; engineering best practices</li></ul>
     <h4>Technologies</h4>
     <div class="job-tags"><span>Java</span><span>Spring Boot</span><span>Hibernate</span><span>REST</span><span>Kafka</span><span>JUnit</span></div>
-    <a href="contact.html" class="btn btn--primary">Discuss this service</a>
+    <a href="/contact" class="btn btn--primary">Discuss this service</a>
   </div>
 
   <div class="svc-source" id="svc-python-development" hidden>
@@ -180,7 +205,7 @@
     <ul class="svc-list"><li>Backend &amp; API development</li><li>Workflow &amp; process automation</li><li>Data processing applications</li><li>Third-party &amp; system integrations</li><li>Scripting, tooling &amp; utilities</li><li>Rapid prototyping</li></ul>
     <h4>Technologies</h4>
     <div class="job-tags"><span>Python</span><span>Django</span><span>Flask</span><span>FastAPI</span><span>pandas</span><span>Celery</span></div>
-    <a href="contact.html" class="btn btn--primary">Discuss this service</a>
+    <a href="/contact" class="btn btn--primary">Discuss this service</a>
   </div>
 
   <div class="svc-source" id="svc-cloud-computing" hidden>
@@ -192,7 +217,7 @@
     <ul class="svc-list"><li>Cloud strategy &amp; architecture</li><li>Migration &amp; modernization</li><li>Cost optimization (FinOps)</li><li>DevOps &amp; CI/CD pipelines</li><li>Infrastructure as Code</li><li>Security &amp; compliance</li></ul>
     <h4>Technologies</h4>
     <div class="job-tags"><span>AWS</span><span>Microsoft Azure</span><span>Google Cloud</span><span>Docker</span><span>Kubernetes</span><span>Terraform</span></div>
-    <a href="contact.html" class="btn btn--primary">Discuss this service</a>
+    <a href="/contact" class="btn btn--primary">Discuss this service</a>
   </div>
 
   <div class="svc-source" id="svc-qa-testing" hidden>
@@ -204,7 +229,7 @@
     <ul class="svc-list"><li>Test strategy &amp; planning</li><li>Manual &amp; exploratory testing</li><li>Automation framework development</li><li>API &amp; performance testing</li><li>CI/CD test integration</li><li>Regression &amp; smoke suites</li></ul>
     <h4>Technologies</h4>
     <div class="job-tags"><span>Selenium</span><span>Cypress</span><span>TestNG</span><span>JUnit</span><span>Postman</span><span>JMeter</span></div>
-    <a href="contact.html" class="btn btn--primary">Discuss this service</a>
+    <a href="/contact" class="btn btn--primary">Discuss this service</a>
   </div>
 
   <div class="svc-source" id="svc-data-analytics" hidden>
@@ -216,20 +241,20 @@
     <ul class="svc-list"><li>BI dashboards &amp; reporting</li><li>KPI &amp; metrics design</li><li>Data visualization</li><li>Ad-hoc &amp; self-serve analytics</li><li>Forecasting &amp; trend analysis</li><li>Data storytelling</li></ul>
     <h4>Technologies</h4>
     <div class="job-tags"><span>Power BI</span><span>Tableau</span><span>SQL</span><span>Python</span><span>Excel</span></div>
-    <a href="contact.html" class="btn btn--primary">Discuss this service</a>
+    <a href="/contact" class="btn btn--primary">Discuss this service</a>
   </div>
 
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
-        <a href="index.html" class="brand" aria-label="TecheVision home">
+        <a href="/" class="brand" aria-label="TecheVision home">
           <svg class="brand-mark" viewBox="0 0 30 26" aria-hidden="true"><rect x="0" y="0" width="7" height="26" fill="#37766c"/><rect x="11" y="0" width="7" height="26" fill="#52a890"/><rect x="22" y="0" width="7" height="26" fill="#81fdda"/></svg>
           <span class="brand-word"><span class="brand-name">TECHEVISION</span><span class="brand-tag">With you on every step</span></span>
         </a>
         <p>Top-notch technology consulting to help your business thrive in the digital world.</p>
       </div>
-      <div><h4>Company</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="clients.html">Clients</a></li><li><a href="learn.html">Learn</a></li><li><a href="jobs.html">Jobs</a></li></ul></div>
-      <div><h4>Support</h4><ul class="footer-links"><li><a href="contact.html">Contact</a></li><li><a href="faqs.html">FAQ's</a></li><li><a href="privacy.html">Privacy</a></li></ul></div>
+      <div><h4>Company</h4><ul class="footer-links"><li><a href="/">Home</a></li><li><a href="/services">Services</a></li><li><a href="/clients">Clients</a></li><li><a href="/learn">Learn</a></li><li><a href="/jobs">Jobs</a></li></ul></div>
+      <div><h4>Support</h4><ul class="footer-links"><li><a href="/contact">Contact</a></li><li><a href="/faqs">FAQ's</a></li><li><a href="/privacy">Privacy</a></li></ul></div>
       <div><h4>Get in touch</h4><ul class="footer-links"><li><a href="tel:15599661123">+1 (559) 966-1123</a></li><li><a href="mailto:contact@techevision.com">contact@techevision.com</a></li><li>Ashburn, Virginia, USA</li></ul></div>
     </div>
     <div class="container footer-bottom">
