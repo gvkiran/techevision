@@ -33,7 +33,7 @@
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What can Python development help us with?", "acceptedAnswer": {"@type": "Answer", "text": "Backends and APIs, workflow and process automation, data-processing applications, integrations, and internal tooling that removes manual work."}}, {"@type": "Question", "name": "Do you build automation scripts and tools?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — a large part of our Python work is automating repetitive processes and building internal tools that save your team time."}}, {"@type": "Question", "name": "Which Python frameworks do you use?", "acceptedAnswer": {"@type": "Answer", "text": "We commonly work with Django, Flask, and FastAPI for web and APIs, and pandas and Celery for data and background processing."}}]}</script>
 </head>
 <body>
-  <header class="site-header">
+    <header class="site-header">
     <div class="container nav">
       <a href="/" class="brand" aria-label="TecheVision home">
         <svg class="brand-mark" viewBox="0 0 30 26" aria-hidden="true"><rect x="0" y="0" width="7" height="26" fill="#37766c"/><rect x="11" y="0" width="7" height="26" fill="#52a890"/><rect x="22" y="0" width="7" height="26" fill="#81fdda"/></svg>
@@ -42,10 +42,27 @@
       <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
-        <li><a href="/services" class="active">Services</a></li>
+        <li class="has-dropdown">
+          <a href="/services" class="dd-toggle active">Services <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+          <ul class="dropdown">
+            <li><a href="/data-engineering-services">Data Engineering</a></li>
+            <li><a href="/java-development-services">Java Development</a></li>
+            <li><a href="/python-development-services">Python Development</a></li>
+            <li><a href="/cloud-computing-services">Cloud Computing</a></li>
+            <li><a href="/qa-testing-services">QA &amp; Test Automation</a></li>
+            <li><a href="/data-analytics-services">Data Analytics</a></li>
+            <li><a href="/services" class="dd-all">All services &rarr;</a></li>
+          </ul>
+        </li>
         <li><a href="/clients">Clients</a></li>
         <li><a href="/learn">Learn</a></li>
-        <li><a href="/jobs">Jobs</a></li>
+        <li class="has-dropdown">
+          <a href="/jobs" class="dd-toggle">Careers <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+          <ul class="dropdown">
+            <li><a href="/jobs">Open Jobs</a></li>
+            <li><a href="/training-and-placement">Training &amp; Placement</a></li>
+          </ul>
+        </li>
         <li class="nav-cta"><a href="/contact" class="btn btn--primary">Contact</a></li>
       </ul>
     </div>

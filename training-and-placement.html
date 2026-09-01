@@ -33,7 +33,7 @@
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do you guarantee a job?", "acceptedAnswer": {"@type": "Answer", "text": "We provide job placement assistance — including resume and interview preparation, guidance, and help connecting with opportunities — but we don't promise a specific outcome. Your effort and market conditions matter."}}, {"@type": "Question", "name": "What skills do you train for?", "acceptedAnswer": {"@type": "Answer", "text": "The in-demand areas we work in every day: data engineering, Java and Python development, cloud, data analytics, and QA/test automation."}}, {"@type": "Question", "name": "Is the training remote or in person?", "acceptedAnswer": {"@type": "Answer", "text": "We work with learners remotely and across Northern Virginia. Reach out and we'll talk through what fits your goals and schedule."}}, {"@type": "Question", "name": "Do you help with interview prep and resumes?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — resume and interview preparation are part of the placement assistance we offer, so you can present your skills with confidence."}}]}</script>
 </head>
 <body>
-  <header class="site-header">
+    <header class="site-header">
     <div class="container nav">
       <a href="/" class="brand" aria-label="TecheVision home">
         <svg class="brand-mark" viewBox="0 0 30 26" aria-hidden="true"><rect x="0" y="0" width="7" height="26" fill="#37766c"/><rect x="11" y="0" width="7" height="26" fill="#52a890"/><rect x="22" y="0" width="7" height="26" fill="#81fdda"/></svg>
@@ -42,10 +42,27 @@
       <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
-        <li><a href="/services">Services</a></li>
+        <li class="has-dropdown">
+          <a href="/services" class="dd-toggle">Services <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+          <ul class="dropdown">
+            <li><a href="/data-engineering-services">Data Engineering</a></li>
+            <li><a href="/java-development-services">Java Development</a></li>
+            <li><a href="/python-development-services">Python Development</a></li>
+            <li><a href="/cloud-computing-services">Cloud Computing</a></li>
+            <li><a href="/qa-testing-services">QA &amp; Test Automation</a></li>
+            <li><a href="/data-analytics-services">Data Analytics</a></li>
+            <li><a href="/services" class="dd-all">All services &rarr;</a></li>
+          </ul>
+        </li>
         <li><a href="/clients">Clients</a></li>
         <li><a href="/learn">Learn</a></li>
-        <li><a href="/jobs">Jobs</a></li>
+        <li class="has-dropdown">
+          <a href="/jobs" class="dd-toggle active">Careers <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+          <ul class="dropdown">
+            <li><a href="/jobs">Open Jobs</a></li>
+            <li><a href="/training-and-placement">Training &amp; Placement</a></li>
+          </ul>
+        </li>
         <li class="nav-cta"><a href="/contact" class="btn btn--primary">Contact</a></li>
       </ul>
     </div>

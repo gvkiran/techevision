@@ -33,7 +33,7 @@
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What does a data analytics engagement look like?", "acceptedAnswer": {"@type": "Answer", "text": "We define the metrics that matter, build dashboards and reports, and help your team self-serve insight — turning raw data into decisions."}}, {"@type": "Question", "name": "Which BI tools do you work with?", "acceptedAnswer": {"@type": "Answer", "text": "Power BI and Tableau most often, backed by SQL and Python for data preparation and analysis."}}, {"@type": "Question", "name": "Can you help us define the right KPIs?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — we work with your teams to define meaningful KPIs and metrics, then build the reporting to track them."}}]}</script>
 </head>
 <body>
-  <header class="site-header">
+    <header class="site-header">
     <div class="container nav">
       <a href="/" class="brand" aria-label="TecheVision home">
         <svg class="brand-mark" viewBox="0 0 30 26" aria-hidden="true"><rect x="0" y="0" width="7" height="26" fill="#37766c"/><rect x="11" y="0" width="7" height="26" fill="#52a890"/><rect x="22" y="0" width="7" height="26" fill="#81fdda"/></svg>
@@ -42,10 +42,27 @@
       <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
-        <li><a href="/services" class="active">Services</a></li>
+        <li class="has-dropdown">
+          <a href="/services" class="dd-toggle active">Services <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+          <ul class="dropdown">
+            <li><a href="/data-engineering-services">Data Engineering</a></li>
+            <li><a href="/java-development-services">Java Development</a></li>
+            <li><a href="/python-development-services">Python Development</a></li>
+            <li><a href="/cloud-computing-services">Cloud Computing</a></li>
+            <li><a href="/qa-testing-services">QA &amp; Test Automation</a></li>
+            <li><a href="/data-analytics-services">Data Analytics</a></li>
+            <li><a href="/services" class="dd-all">All services &rarr;</a></li>
+          </ul>
+        </li>
         <li><a href="/clients">Clients</a></li>
         <li><a href="/learn">Learn</a></li>
-        <li><a href="/jobs">Jobs</a></li>
+        <li class="has-dropdown">
+          <a href="/jobs" class="dd-toggle">Careers <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+          <ul class="dropdown">
+            <li><a href="/jobs">Open Jobs</a></li>
+            <li><a href="/training-and-placement">Training &amp; Placement</a></li>
+          </ul>
+        </li>
         <li class="nav-cta"><a href="/contact" class="btn btn--primary">Contact</a></li>
       </ul>
     </div>
