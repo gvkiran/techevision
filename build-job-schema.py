@@ -39,10 +39,12 @@ def city_region(loc):
 blocks = []
 for j in jobs:
     posted = j.get("posted", "")
-    try:
-        valid = (datetime.date.fromisoformat(posted) + datetime.timedelta(days=90)).isoformat()
-    except Exception:
-        valid = ""
+    valid = (j.get("validThrough") or "").strip()
+    if not valid:
+        try:
+            valid = (datetime.date.fromisoformat(posted) + datetime.timedelta(days=90)).isoformat()
+        except Exception:
+            valid = ""
     city, region = city_region(j.get("location", "Ashburn, VA"))
     obj = {
         "@context": "https://schema.org/",
