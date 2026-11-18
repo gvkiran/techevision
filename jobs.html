@@ -294,11 +294,10 @@
         <div class="modal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M2 13h20"/></svg></div>
         <h3 id="apply-title">Apply now</h3>
         <p class="modal-tag" id="apply-role-tag" hidden></p>
-        <form class="form form--bare" action="https://formsubmit.co/contact@techevision.com" method="POST">
-          <input type="hidden" name="_subject" value="New job application from techevision.com" />
-          <input type="hidden" name="_captcha" value="true" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_next" value="https://techevision.com/thanks" />
+        <form class="form form--bare" action="/api/contact" method="POST" data-tv-form>
+          <input type="hidden" name="form_type" value="application" />
+          <input type="hidden" name="_ts" value="" />
+          <div aria-hidden="true" style="position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0"><label>Leave this field empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label></div>
           <label for="j-name">Name *</label>
           <input id="j-name" type="text" name="name" required placeholder="Full name" />
           <label for="j-phone">Phone *</label>

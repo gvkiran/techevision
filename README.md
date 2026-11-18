@@ -15,7 +15,8 @@ It replaces the old GoDaddy Website Builder site so the content is fully owned a
 ├── clients.html      # Clients
 ├── contact.html      # Contact (form + hours)
 ├── faqs.html         # FAQ's
-├── careers.html      # Careers (job openings + apply form)
+├── jobs.html         # Careers (job openings + apply form)
+├── api/contact.js    # Form handler (emails submissions via Zoho SMTP)
 ├── css/styles.css    # All styling (colors are CSS variables at the top)
 ├── js/main.js        # Mobile menu + auto footer year
 ├── vercel.json       # Vercel config: clean URLs + security headers
@@ -43,17 +44,30 @@ Vercel redeploys automatically within ~1 minute of each push.
 
 ## Forms
 
-The contact and careers forms post to **FormSubmit** (https://formsubmit.co), a free service
-that emails submissions to `contact@techevision.com` — no server required.
+The contact form (`contact.html`) and the job-application form (`jobs.html`) post to our own
+serverless function, **`api/contact.js`**, which emails each submission to
+`contact@techevision.com` through **Zoho SMTP**, signed in as the contact@ mailbox itself
+(so the mail passes SPF/DKIM/DMARC). The visitor's address is set as Reply-To, so you can
+just hit Reply. On success the visitor lands on `/thanks`.
 
-> **One-time activation:** the first time a form is submitted, FormSubmit emails
-> `contact@techevision.com` an activation link. Click it once and all future submissions
-> are delivered automatically. To switch providers later (e.g. Formspree), just change the
-> `action="..."` URL on each `<form>`.
+It needs two environment variables in Vercel (Project → Settings → Environment Variables,
+for **Production** and **Preview**):
+
+| Name | Value |
+|---|---|
+| `SMTP_USER` | `contact@techevision.com` |
+| `SMTP_PASS` | a Zoho **app-specific password** for contact@ (not the login password) |
+
+> If you ever reset the contact@ password or revoke that app password in Zoho, the forms stop
+> sending — create a new app password and update `SMTP_PASS` in Vercel, then redeploy.
+
+Spam protection: a hidden "honeypot" field, a minimum fill time, an origin check and a
+per-visitor rate limit. To add a new form, give it `action="/api/contact"`, `method="POST"`,
+`data-tv-form`, and add its fields to the `FORMS` list in `api/contact.js`.
 
 ## Hosting & domain
 
-- **Hosting:** Vercel (free tier, automatic HTTPS). Vercel is connected to this GitHub repo
+- **Hosting:** Vercel (automatic HTTPS). Vercel is connected to this GitHub repo
   and redeploys on every `git push`. Behavior is configured in `vercel.json`
   (clean URLs + security headers).
 - **Domain:** `techevision.com` stays registered at GoDaddy; the domain is added and

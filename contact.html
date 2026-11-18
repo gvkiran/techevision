@@ -123,11 +123,10 @@
     <div class="container split">
       <div class="form reveal">
         <h3>Drop us a line!</h3>
-        <form action="https://formsubmit.co/contact@techevision.com" method="POST">
-          <input type="hidden" name="_subject" value="New contact from techevision.com" />
-          <input type="hidden" name="_captcha" value="true" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_next" value="https://techevision.com/thanks" />
+        <form action="/api/contact" method="POST" data-tv-form>
+          <input type="hidden" name="form_type" value="contact" />
+          <input type="hidden" name="_ts" value="" />
+          <div aria-hidden="true" style="position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0"><label>Leave this field empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label></div>
           <label for="c-name">Name</label>
           <input id="c-name" type="text" name="name" placeholder="Your name" autocomplete="name" />
           <label for="c-email">Email *</label>

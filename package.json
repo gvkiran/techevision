@@ -1,0 +1,11 @@
+{
+  "name": "techevision-site",
+  "private": true,
+  "description": "Static site; only the /api form handler uses Node dependencies.",
+  "engines": {
+    "node": "24.x"
+  },
+  "dependencies": {
+    "nodemailer": "10.3.1"
+  }
+}

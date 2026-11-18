@@ -223,3 +223,28 @@ function initHeroFX() {
   var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(build, 200); });
   requestAnimationFrame(frame);
 }
+
+// Website forms (contact + job application) → /api/contact
+// Stamps the load time (spam check) and prevents double-submits.
+(function () {
+  function setup() {
+    var forms = document.querySelectorAll('form[data-tv-form]');
+    forms.forEach(function (form) {
+      var ts = form.querySelector('input[name="_ts"]');
+      if (ts) ts.value = String(Date.now());
+      form.addEventListener('submit', function () {
+        var btn = form.querySelector('button[type="submit"]');
+        if (btn) { btn.disabled = true; btn.setAttribute('data-label', btn.textContent); btn.textContent = 'Sending…'; }
+      });
+    });
+    // If the visitor comes back with the Back button, re-enable the button.
+    window.addEventListener('pageshow', function () {
+      forms.forEach(function (form) {
+        var btn = form.querySelector('button[type="submit"]');
+        if (btn && btn.disabled) { btn.disabled = false; btn.textContent = btn.getAttribute('data-label') || btn.textContent; }
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup);
+  else setup();
+})();
