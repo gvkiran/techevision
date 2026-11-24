@@ -61,8 +61,10 @@ for **Production** and **Preview**):
 > If you ever reset the contact@ password or revoke that app password in Zoho, the forms stop
 > sending — create a new app password and update `SMTP_PASS` in Vercel, then redeploy.
 
-Spam protection: a hidden "honeypot" field, a minimum fill time, an origin check and a
-per-visitor rate limit. To add a new form, give it `action="/api/contact"`, `method="POST"`,
+Spam protection: a hidden "honeypot" field, a required load-time stamp (3 s minimum, 24 h
+maximum), a required same-site Origin/Referer, a block on sender addresses at our own domain
+(spam bots fake e.g. "elana@techevision.com", so test the form with a non-company address) and
+a per-visitor rate limit. Blocked submissions log `[contact] blocked: <reason>` in Vercel. To add a new form, give it `action="/api/contact"`, `method="POST"`,
 `data-tv-form`, and add its fields to the `FORMS` list in `api/contact.js`.
 
 ## Hosting & domain

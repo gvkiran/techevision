@@ -38,6 +38,12 @@ const FORMS = {
   },
 };
 
+// Domains no outside visitor would use as their own address.
+const OWN_DOMAINS = ['techevision.com'];
+
+// Logs which spam rule caught a submission (no personal data), visible in Vercel runtime logs.
+function drop(reason) { console.log('[contact] blocked: ' + reason); }
+
 const EMAIL_RE = /^[^\s@<>()",;:]+@[^\s@<>()",;:]+\.[^\s@<>()",;:]{2,}$/;
 
 // Best-effort per-instance rate limit: 5 submissions per IP per 10 minutes.
@@ -81,22 +87,37 @@ module.exports = async function handler(req, res) {
   }
 
   // Only accept posts coming from this site's own pages.
+  // Browsers always send Origin (or at least Referer) with a form POST; scripts that post
+  // straight to this endpoint usually send neither, so those are dropped too.
   const host = (req.headers['x-forwarded-host'] || req.headers.host || '').toLowerCase();
-  const origin = req.headers.origin;
-  if (origin && origin !== 'null') {
-    let oh = '';
-    try { oh = new URL(origin).host.toLowerCase(); } catch (e) {}
-    if (oh !== host) return page(res, 403, 'Not allowed', 'Please use the form on techevision.com.');
+  const origin = req.headers.origin && req.headers.origin !== 'null' ? req.headers.origin : req.headers.referer;
+  let oh = '';
+  try { oh = new URL(origin).host.toLowerCase(); } catch (e) {}
+  if (!origin) {
+    drop('no-origin');
+    return page(res, 400, 'Message not sent', 'Please send your message from the form on techevision.com, or email us directly at <a href="mailto:contact@techevision.com">contact@techevision.com</a>.');
   }
+  if (oh !== host) return page(res, 403, 'Not allowed', 'Please use the form on techevision.com.');
 
   const f = parseBody(req);
   const ip = oneLine((req.headers['x-forwarded-for'] || '').split(',')[0] || 'unknown');
   const back = '/thanks';
 
-  // Spam traps: hidden field must stay empty; a form filled in under 3 seconds is a bot.
-  if (f._gotcha) return res.redirect(303, back);
-  const started = Number(f._ts);
-  if (started && Date.now() - started < 3000) return res.redirect(303, back);
+  // Spam traps. Bots are sent to the normal thank-you page so they learn nothing.
+  // 1. The hidden field must stay empty.
+  if (f._gotcha) { drop('honeypot'); return res.redirect(303, back); }
+  // 2. The page stamps _ts with its load time. Bots that post the form without running the
+  //    page's script leave it empty; bots that fill it instantly are under 3 seconds.
+  const started = Number(f._ts), age = Date.now() - started;
+  if (!started) {
+    drop('no-timestamp');
+    return page(res, 400, 'Message not sent', 'Please reload the page and try again (the form needs JavaScript turned on), or email us directly at <a href="mailto:contact@techevision.com">contact@techevision.com</a>.');
+  }
+  if (age < 3000) { drop('too-fast'); return res.redirect(303, back); }
+  if (age > 24 * 60 * 60 * 1000 || age < -60000) {
+    drop('stale-timestamp');
+    return page(res, 400, 'Message not sent', 'This page has been open a long time. Please reload it and send your message again.');
+  }
 
   if (rateLimited(ip)) {
     return page(res, 429, 'Too many submissions', 'Please wait a few minutes and try again, or email us at <a href="mailto:contact@techevision.com">contact@techevision.com</a>.');
@@ -113,6 +134,14 @@ module.exports = async function handler(req, res) {
   const missing = def.required.filter((k) => !data[k]);
   if (missing.length || !EMAIL_RE.test(data.email)) {
     return page(res, 400, 'Please check the form', 'A required field is missing or the email address looks invalid. Please go back and try again.');
+  }
+
+  // 3. Spam bots fake the sender as someone@<our own domain> (e.g. "elana@techevision.com").
+  //    No real visitor writes in from our own domain, so tell them to use their own address.
+  const senderDomain = data.email.split('@').pop().toLowerCase();
+  if (OWN_DOMAINS.includes(senderDomain)) {
+    drop('own-domain-sender');
+    return page(res, 400, 'Please use your own email address', 'Enter the email address where you would like us to reply, then send your message again.');
   }
 
   const user = process.env.SMTP_USER, pass = process.env.SMTP_PASS;
