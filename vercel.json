@@ -1,4 +1,9 @@
 {
+  "git": {
+    "deploymentEnabled": {
+      "cloudflare-test": false
+    }
+  },
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [

@@ -1,0 +1,13 @@
+# Cloudflare Pages headers (same as vercel.json, plus noindex on the *.pages.dev test address)
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+/sitemap.xml
+  X-Robots-Tag: noindex
+
+# Keep the test copy out of Google so it never competes with techevision.com
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex

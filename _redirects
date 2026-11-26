@@ -1,0 +1,2 @@
+# Cloudflare Pages redirects (same as vercel.json)
+/careers  /jobs  301
