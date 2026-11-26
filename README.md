@@ -75,3 +75,21 @@ a per-visitor rate limit. Blocked submissions log `[contact] blocked: <reason>` 
 - **Domain:** `techevision.com` stays registered at GoDaddy; the domain is added and
   verified in the Vercel dashboard (Project → Settings → Domains), with GoDaddy DNS pointing
   to Vercel. (The old GitHub Pages `CNAME` file was removed on purpose — Vercel doesn't use it.)
+
+## Cloudflare Pages (moving off Vercel)
+
+The Cloudflare Pages setup now lives on `main`, so the same commit builds on both hosts
+during the cutover. Which one visitors reach is decided only by DNS for `techevision.com`.
+Once DNS points at Cloudflare and the site is confirmed working, the Vercel project can be
+paused and `api/`, `vercel.json` and `.vercelignore` deleted.
+
+| Cloudflare setting | Value |
+|---|---|
+| Production branch | `main` |
+| Build command | `sh cloudflare-build.sh` |
+| Build output directory | `dist` |
+| Variables | `SMTP_USER` = contact@techevision.com, `SMTP_PASS` = Zoho app password (Secret) |
+
+- `functions/api/contact.js`: the Cloudflare version of the form handler (same spam rules; sends via Zoho SMTP over port 465).
+- `_headers` / `_redirects`: the Cloudflare equivalents of `vercel.json`. The `*.pages.dev` test address is `noindex`, so Google ignores it.
+- Form emails sent from the test address have subjects starting with `[Cloudflare TEST]`.
