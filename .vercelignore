@@ -1,0 +1,10 @@
+# Cloudflare-only and repo-only files. Vercel would otherwise publish them as plain
+# downloadable files on techevision.com while both hosts build from main.
+# Do NOT list api/ or package.json here: Vercel's contact form needs them.
+functions/
+cloudflare-build.sh
+_headers
+_redirects
+dist/
+README.md
+build-job-schema.py

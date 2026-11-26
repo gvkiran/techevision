@@ -76,15 +76,16 @@ a per-visitor rate limit. Blocked submissions log `[contact] blocked: <reason>` 
   verified in the Vercel dashboard (Project → Settings → Domains), with GoDaddy DNS pointing
   to Vercel. (The old GitHub Pages `CNAME` file was removed on purpose — Vercel doesn't use it.)
 
-## Cloudflare Pages test copy (branch `cloudflare-test`)
+## Cloudflare Pages (moving off Vercel)
 
-A trial copy of the site for Cloudflare Pages lives on the `cloudflare-test` branch only.
-It does **not** change the live site: `main`, Vercel and DNS are untouched, and Vercel is told
-to skip this branch (`git.deploymentEnabled` in `vercel.json`).
+The Cloudflare Pages setup now lives on `main`, so the same commit builds on both hosts
+during the cutover. Which one visitors reach is decided only by DNS for `techevision.com`.
+Once DNS points at Cloudflare and the site is confirmed working, the Vercel project can be
+paused and `api/`, `vercel.json` and `.vercelignore` deleted.
 
 | Cloudflare setting | Value |
 |---|---|
-| Production branch | `cloudflare-test` |
+| Production branch | `main` |
 | Build command | `sh cloudflare-build.sh` |
 | Build output directory | `dist` |
 | Variables | `SMTP_USER` = contact@techevision.com, `SMTP_PASS` = Zoho app password (Secret) |
